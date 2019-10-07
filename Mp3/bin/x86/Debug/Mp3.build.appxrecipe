@@ -34,23 +34,11 @@
     <AppxPackagedFile Include="C:\Users\tvngi\.nuget\packages\nunit\3.12.0\lib\netstandard2.0\nunit.framework.dll">
       <PackagePath>nunit.framework.dll</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\tvngi\.nuget\packages\prism.core\7.2.0.1367\lib\netstandard2.0\Prism.dll">
+      <PackagePath>Prism.dll</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x86.microsoft.netcore.universalwindowsplatform\6.2.9\runtimes\win10-x86\lib\uap10.0.15138\System.Runtime.dll">
       <PackagePath>System.Runtime.dll</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\tvngi\.nuget\packages\win2d.uwp\1.19.0\runtimes\win10-x86\native\Microsoft.Graphics.Canvas.dll">
-      <PackagePath>Microsoft.Graphics.Canvas.dll</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\tvngi\.nuget\packages\winux.common\2.4.17005.1\lib\portable46-net451+win81\WinUX.Common.dll">
-      <PackagePath>WinUX.Common.dll</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\tvngi\.nuget\packages\winux.uwp\2.4.17005.1\lib\.NETCore50\WinUX.UWP.dll">
-      <PackagePath>WinUX.UWP.dll</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\tvngi\.nuget\packages\writeablebitmapex\1.5.0\lib\NetCore45\WriteableBitmapEx.WinRT.dll">
-      <PackagePath>WriteableBitmapEx.WinRT.dll</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\tvngi\.nuget\packages\win2d.uwp\1.19.0\lib\uap10.0\Microsoft.Graphics.Canvas.winmd">
-      <PackagePath>Microsoft.Graphics.Canvas.winmd</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\bin\10.0.18362.0\XamlCompiler\Microsoft.UI.Xaml.Markup.winmd">
       <PackagePath>Microsoft.UI.Xaml.Markup.winmd</PackagePath>
@@ -117,9 +105,6 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\tvngi\Source\Repos\MP3\Mp3\bin\x86\Debug\Pages\Register.xbf">
       <PackagePath>Pages\Register.xbf</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\tvngi\Source\Repos\MP3\Mp3\bin\x86\Debug\Pages\TestVal.xbf">
-      <PackagePath>Pages\TestVal.xbf</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\tvngi\Source\Repos\MP3\Mp3\bin\x86\Debug\Pages\Upload.xbf">
       <PackagePath>Pages\Upload.xbf</PackagePath>

@@ -1,4 +1,5 @@
-﻿using Mp3.Entity;
+﻿using Mp3.Constant;
+using Mp3.Entity;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
@@ -13,49 +14,84 @@ namespace Mp3.Service
 {
     class MemberServiceImp : MemberService
     {
-        public Member GetInformation(string token, string infoUrl)
+        public Member GetInformation(string token)
         {
             HttpClient client = new HttpClient();
             client.DefaultRequestHeaders.Add("Authorization", "Basic " + token);
-            var responseContent = client.GetAsync(infoUrl).Result.Content.ReadAsStringAsync().Result;
-            //JObject jsonJObject = JObject.Parse(responseContent);
-            //Debug.WriteLine("Info: " + jsonJObject["email"]);
+            var responseContent = client.GetAsync(ApiUrl.GET_INFORMATION_URL).Result.Content.ReadAsStringAsync().Result;
             Member mem = Newtonsoft.Json.JsonConvert.DeserializeObject<Member>(responseContent);
             return mem;
         }
 
-        public string Login(string username, string password, string loginUrl)
+        public string Login(string username, string password)
         {
-            var memberLogin = new Mp3.Entity.MemberLogin()
+            try
             {
-                email = username,
-                password = password
-            };
+                var memberLogin = new MemberLogin()
+                {
+                    email = username,
+                    password = password
+                };
+                //Validate login:
+                if (!ValidateMemberLogin(memberLogin))
+                {
+                    throw new Exception("Login fails!");
+                }
+                var token = GetTokenFromApi(memberLogin);
+                SaveTokenToLocalStorage(token);
+                return token;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e.Message);
+                return null;
+            }
+        }
+
+        private bool ValidateMemberLogin(MemberLogin memberLogin)
+        {
+            return true;
+        }
+
+        private void SaveTokenToLocalStorage(string token)
+        {
+            Windows.Storage.StorageFolder storageFolder =
+                Windows.Storage.ApplicationData.Current.LocalFolder;
+            Windows.Storage.StorageFile tokenFile =
+                 storageFolder.CreateFileAsync("token.txt",
+                    Windows.Storage.CreationCollisionOption.ReplaceExisting).GetAwaiter().GetResult();
+            Windows.Storage.FileIO.WriteTextAsync(tokenFile, token).GetAwaiter().GetResult();
+        }
+
+        public Member Register(Member member)
+        {
+            try
+            {
+                var httpClient = new HttpClient();
+                HttpContent content = new StringContent(JsonConvert.SerializeObject(member), Encoding.UTF8,
+                    "application/json");
+                Task<HttpResponseMessage> httpRequestMessage = httpClient.PostAsync(ApiUrl.REGISTER_URL, content);
+                var responseContent = httpRequestMessage.Result.Content.ReadAsStringAsync().Result;
+                //Convert json to ofject C#:
+                Member resMember = JsonConvert.DeserializeObject<Member>(responseContent);
+                return resMember;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e.Message);
+                return null;
+            }
+        }
+        private string GetTokenFromApi(MemberLogin memberLogin)
+        {
+            //Thuc hien request len api lay token ve:
             var dataContent = new StringContent(JsonConvert.SerializeObject(memberLogin),
                 Encoding.UTF8, "application/json");
             HttpClient client = new HttpClient();
-            var responseContent = client.PostAsync(loginUrl, dataContent).Result.Content.ReadAsStringAsync().Result;
+            var responseContent = client.PostAsync(ApiUrl.LOGIN_URL, dataContent).Result.Content.ReadAsStringAsync().Result;
             JObject jsonJObject = JObject.Parse(responseContent);
-            String token = jsonJObject["token"].ToString();
-            //Debug.WriteLine(jsonJObject["token"]);
-            return token;
+            return jsonJObject["token"].ToString();
         }
 
-        public Member Register(Member member, String registerUrl)
-        {
-
-            var httpClient = new HttpClient();
-            HttpContent content = new StringContent(JsonConvert.SerializeObject(member), Encoding.UTF8,
-                "application/json");
-            Task<HttpResponseMessage> httpRequestMessage = httpClient.PostAsync(registerUrl, content);
-
-            String responseContent = httpRequestMessage.Result.Content.ReadAsStringAsync().Result;
-            Debug.WriteLine("Response: " + responseContent);
-
-            //Convert json to ofject C#:
-            Member resMember = JsonConvert.DeserializeObject<Member>(responseContent);
-            Debug.WriteLine("Register email: " + resMember.email);
-            return resMember;
-        }
     }
 }

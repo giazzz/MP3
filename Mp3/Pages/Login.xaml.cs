@@ -25,48 +25,36 @@ namespace Mp3.Pages
     /// </summary>
     public sealed partial class Login : Page
     {
-        MemberServiceImp memberService = new MemberServiceImp();
-        private string LOGIN_URL = "https://2-dot-backup-server-003.appspot.com/_api/v2/members/authentication";
-        private string INFORMATION_URL = "https://2-dot-backup-server-003.appspot.com/_api/v2/members/information";
+        MemberService memberService;
+
         public Login()
         {
             this.InitializeComponent();
-            //Doc file chua token:
-            Windows.Storage.StorageFolder storageFolder =
-                Windows.Storage.ApplicationData.Current.LocalFolder;
-            Windows.Storage.StorageFile tokenFile =
-                 storageFolder.GetFileAsync("token.txt").GetAwaiter().GetResult();
-            var token1 = Windows.Storage.FileIO.ReadTextAsync(tokenFile).GetAwaiter().GetResult();
-            Debug.WriteLine(token1);
+            this.memberService = new MemberServiceImp();
+            ////Doc file chua token:
+            //Windows.Storage.StorageFolder storageFolder =
+            //    Windows.Storage.ApplicationData.Current.LocalFolder;
+            //Windows.Storage.StorageFile tokenFile =
+            //     storageFolder.GetFileAsync("token.txt").GetAwaiter().GetResult();
+            //var token1 = Windows.Storage.FileIO.ReadTextAsync(tokenFile).GetAwaiter().GetResult();
+            //Debug.WriteLine(token1);
 
-            //Lay info tu APi bang token:
-            Member memberLogin = memberService.GetInformation(token1, INFORMATION_URL);
-            Debug.WriteLine("Email da dang nhap: " + memberLogin.email);
+            ////Lay info tu APi bang token:
+            //Member memberLogin = memberService.GetInformation(token1, INFORMATION_URL);
+            //Debug.WriteLine("Email da dang nhap: " + memberLogin.email);
         }
 
         private void ButtonLogin_Click(object sender, RoutedEventArgs e)
         {
-            string email = this.email.Text;
-            string password = this.password.Password;
-
-            string token = memberService.Login(email, password, LOGIN_URL);
-
-
-            //Tao file luu token:
-            Windows.Storage.StorageFolder storageFolder =
-                Windows.Storage.ApplicationData.Current.LocalFolder;
-
-            Windows.Storage.StorageFile tokenFile =
-                 storageFolder.CreateFileAsync("token.txt",
-                    Windows.Storage.CreationCollisionOption.ReplaceExisting).GetAwaiter().GetResult();
-
-            Windows.Storage.FileIO.WriteTextAsync(tokenFile, token).GetAwaiter().GetResult();
-            Debug.WriteLine(tokenFile.Path);
-
-
+            string token = memberService.Login(this.email.Text, this.password.Password);
         }
 
         private void ButtonReset_Click(object sender, RoutedEventArgs e)
+        {
+            ResetLoginForm();
+        }
+
+        private void ResetLoginForm()
         {
             this.email.Text = string.Empty;
             this.password.Password = string.Empty;

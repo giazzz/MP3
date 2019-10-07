@@ -45,6 +45,8 @@ namespace Mp3.Pages
             ("profile", typeof(Profile)),
             ("editprofile", typeof(EditProfile)),
             ("file", typeof(FileHandle)),
+            ("listsong", typeof(ListSong)),
+
         };
 
         private void NavView_Loaded(object sender, RoutedEventArgs e)

@@ -8,7 +8,75 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
+    <ScrollViewer Margin="20">
+        <StackPanel Margin="50" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Grid Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="200"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Text="Name"/>
+                <TextBox Grid.Column='1' x:Name="name"></TextBox>
+                <TextBlock Grid.Column="2" x:Name="name_er"></TextBlock>
+            </Grid>
 
-    </Grid>
+            <Grid Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="200"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Text="Description"/>
+                <TextBox Grid.Column='1' x:Name="description"></TextBox>
+                <TextBlock Grid.Column="2" x:Name="description_er"></TextBlock>
+            </Grid>
+
+            <Grid Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="200"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Text="Singer"/>
+                <TextBox Grid.Column='1' x:Name="singer"></TextBox>
+                <TextBlock Grid.Column="2" x:Name="singer_er"></TextBlock>
+            </Grid>
+
+            <Grid Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="200"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Text="Author"/>
+                <TextBox Grid.Column='1' x:Name="author"></TextBox>
+                <TextBlock Grid.Column="2" x:Name="author_er"></TextBlock>
+            </Grid>
+
+            <Grid Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="200"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Text="Thumbnail"/>
+                <TextBox Grid.Column='1' x:Name="thumbnail"></TextBox>
+                <TextBlock Grid.Column="2" x:Name="thumbnail_er"></TextBlock>
+            </Grid>
+
+            <Grid Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="200"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Text="Link"/>
+                <TextBox Grid.Column='1' x:Name="link"></TextBox>
+                <TextBlock Grid.Column="2" x:Name="link_er"></TextBlock>
+            </Grid>
+
+            <Button Click="ButtonBase_OnClick">Upload</Button>
+        </StackPanel>
+    </ScrollViewer>
 </Page>

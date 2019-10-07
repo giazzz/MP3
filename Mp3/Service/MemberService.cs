@@ -9,8 +9,8 @@ namespace Mp3.Service
 {
     interface MemberService
     {
-        String Login(String username, String password, String loginUrl);
-        Member Register(Member member, String registerUrl);
-        Member GetInformation(String token, String infoUrl);
+        String Login(String username, String password);
+        Member Register(Member member);
+        Member GetInformation(String token);
     }
 }

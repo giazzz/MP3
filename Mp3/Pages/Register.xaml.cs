@@ -29,13 +29,15 @@ namespace Mp3.Pages
     /// </summary>
     public sealed partial class Register : Page
     {
-        private const string ApiUrl = "https://2-dot-backup-server-003.appspot.com/_api/v2/members";
         private string GET_UPLOAD_TOKEN = "https://2-dot-backup-server-003.appspot.com/get-upload-token";
         private StorageFile photo;
         private string imgUrl = "";
+        MemberService memberService;
         public Register()
         {
             this.InitializeComponent();
+            this.memberService = new MemberServiceImp();
+
             //Combobox gender:
             Dictionary<String, int> genders = new Dictionary<string, int>();
             genders.Add("Female", 0);
@@ -49,8 +51,6 @@ namespace Mp3.Pages
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
             
-            MemberServiceImp memberService = new MemberServiceImp();
-            FileServiceImp fileService = new FileServiceImp();
             var member = new Member
             {
                 firstName = this.firstname.Text,
@@ -65,11 +65,15 @@ namespace Mp3.Pages
                 phone = this.phone.Text
 
             };
-            //Register:
-            Member mem = memberService.Register(member, ApiUrl);
-            Debug.WriteLine("Email da dang ki: " + mem.email);
-
-
+            member = memberService.Register(member);
+            if (member == null)
+            {
+                //Show error
+            }
+            else
+            {
+                //Show success
+            }
         }
 
         private void Button_Cancel(object sender, RoutedEventArgs e)
