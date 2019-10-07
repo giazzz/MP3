@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NUnit.Framework;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -16,7 +17,7 @@ namespace Mp3.Service
         private StorageFile photo;
         public async Task<string> GetUploadFile(String url, String paramName, String contentType)
         {
-            string imageUrl = "";
+            string imgUrl="";
             string boundary = "---------------------------" + DateTime.Now.Ticks.ToString("x");
             byte[] boundarybytes = System.Text.Encoding.ASCII.GetBytes("\r\n--" + boundary + "\r\n");
 
@@ -50,16 +51,17 @@ namespace Mp3.Service
                 Stream stream2 = wresp.GetResponseStream();
                 StreamReader reader2 = new StreamReader(stream2);
                 //Debug.WriteLine(string.Format("File uploaded, server response is: @{0}@", reader2.ReadToEnd()));
-                //string imgUrl = reader2.ReadToEnd();
+                //imgUrl = reader2.ReadToEnd();
                 //Uri u = new Uri(reader2.ReadToEnd(), UriKind.Absolute);
-                //Debug.WriteLine(u.AbsoluteUri);
+                //Debug.WriteLine(imgUrl);
                 //ImageUrl.Text = u.AbsoluteUri;
                 //MyAvatar.Source = new BitmapImage(u);
                 //Debug.WriteLine(reader2.ReadToEnd());
-                imageUrl = reader2.ReadToEnd();
+                imgUrl = reader2.ReadToEnd();
+                Debug.WriteLine("Link anh: "+imgUrl);
                 //Avatar.Source = new BitmapImage(new Uri(imageUrl, UriKind.Absolute));
                 //AvatarUrl.Text = imageUrl;
-
+                
             }
             catch (Exception ex)
             {
@@ -74,7 +76,7 @@ namespace Mp3.Service
             {
                 wr = null;
             }
-            return imageUrl;
+            return imgUrl;
         }
 
         public string GetUploadUrl(String uploadToken)
@@ -84,5 +86,6 @@ namespace Mp3.Service
             Debug.WriteLine(uploadUrl);
             return uploadUrl;
         }
+        
     }
 }
