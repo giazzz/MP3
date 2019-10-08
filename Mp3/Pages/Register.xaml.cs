@@ -1,4 +1,5 @@
-﻿using Mp3.Entity;
+﻿using Mp3.Constant;
+using Mp3.Entity;
 using Mp3.Service;
 using System;
 using System.Collections.Generic;
@@ -29,7 +30,6 @@ namespace Mp3.Pages
     /// </summary>
     public sealed partial class Register : Page
     {
-        private string GET_UPLOAD_TOKEN = "https://2-dot-backup-server-003.appspot.com/get-upload-token";
         private StorageFile photo;
         private string imgUrl = "";
         MemberService memberService;
@@ -84,7 +84,7 @@ namespace Mp3.Pages
         {
             //Get upload url:
             FileServiceImp fileService = new FileServiceImp();
-            var uploadUrl = fileService.GetUploadUrl(GET_UPLOAD_TOKEN);
+            var uploadUrl = fileService.GetUploadUrl(ApiUrl.GET_UPLOAD_TOKEN);
 
             CameraCaptureUI captureUI = new CameraCaptureUI();
             captureUI.PhotoSettings.Format = CameraCaptureUIPhotoFormat.Jpeg;
@@ -98,7 +98,6 @@ namespace Mp3.Pages
                 return;
             }
             HttpUploadFile(uploadUrl, "myFile", "image/png");
-            Debug.WriteLine(imgUrl);
         }
         public async void HttpUploadFile(string url, string paramName, string contentType)
         {

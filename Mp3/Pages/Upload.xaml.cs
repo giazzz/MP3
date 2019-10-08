@@ -1,4 +1,6 @@
-﻿using Mp3.Entity;
+﻿using Mp3.Constant;
+using Mp3.Entity;
+using Mp3.Service;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -28,75 +30,67 @@ namespace Mp3.Pages
     /// </summary>
     public sealed partial class Upload : Page
     {
-        private const string ApiUrl = "https://2-dot-backup-server-003.appspot.com/_api/v2/songs/post-free";
+        private ISongService songService;
+        
         public Upload()
         {
             this.InitializeComponent();
+            this.songService = new SongServiceImp();
         }
-        public Boolean validate(string name, string thumbnail, string link)
-        {
-            if (name == "")
-            {
-                this.name_er.Text = "Name is not valid!";
-                return false;
-            };
-            if (name.Length > 50)
-            {
-                this.name_er.Text = "Max length 50!";
-                return false;
-            };
-            if (thumbnail == "")
-            {
-                this.thumbnail_er.Text = "Thumbnail is not valid!";
-                return false;
-            };
-            if (link == "")
-            {
-                this.link_er.Text = "Link is not valid!";
-                return false;
-            };
-            if (link.Length <= 4)
-            {
-                this.link_er.Text = "End link must is .mp3!";
-                return false;
-            }
-            else if (link.Substring(link.Length - 4) != ".mp3")
-            {
-                this.link_er.Text = "End link must is .mp3!";
-                return false;
-            };
 
-
-            return true;
-        }
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
-            if (validate(this.name.Text, this.thumbnail.Text, this.link.Text))
+            var errors = new Dictionary<string, string>();
+            var uploadSong = new Song
             {
-                var uploadSong = new Song
+                name = this.name.Text,
+                description = this.description.Text,
+                singer = this.singer.Text,
+                author = this.author.Text,
+                thumbnail = this.thumbnail.Text,
+                link = this.link.Text,
+            };
+            errors = uploadSong.Validate();
+            if (errors.Count == 0)
+            {
+                ResetAllErrorsToHidden();
+                //Upload:
+                uploadSong = songService.PostSongFree(uploadSong);
+                //Check null::
+                if (uploadSong == null)
                 {
-                    name = this.name.Text,
-                    description = this.description.Text,
-                    singer = this.singer.Text,
-                    author = this.author.Text,
-                    thumbnail = this.thumbnail.Text,
-                    link = this.link.Text
-                };
-
-                var httpClient = new HttpClient();
-                HttpContent content = new StringContent(JsonConvert.SerializeObject(uploadSong), Encoding.UTF8,
-                    "application/json");
-
-                Task<HttpResponseMessage> httpRequestMessage = httpClient.PostAsync(ApiUrl, content);
-                String responseContent = httpRequestMessage.Result.Content.ReadAsStringAsync().Result;
-                Debug.WriteLine("Response: " + responseContent);
-
-                Song resSong = JsonConvert.DeserializeObject<Song>(responseContent);
-                Debug.WriteLine("Singer: " + resSong.singer);
+                    //Show error
+                }
+                else
+                {
+                    //Show success
+                }
             }
-
-
-
+            else
+            {
+                ShowErrors(errors); 
+            }
+        }
+        private void ResetAllErrorsToHidden()
+        {
+            this.name_er.Visibility = Visibility.Collapsed;
+            this.description_er.Visibility = Visibility.Collapsed;
+            this.singer_er.Visibility = Visibility.Collapsed;
+            this.author_er.Visibility = Visibility.Collapsed;
+            this.thumbnail_er.Visibility = Visibility.Collapsed;
+            this.link_er.Visibility = Visibility.Collapsed;
+        }
+        private void ShowErrors(Dictionary<string, string> errors)
+        {
+            if (errors.ContainsKey("name"))
+            {
+                this.name_er.Visibility = Visibility.Visible;
+                this.name_er.Text = errors["name"];
+            }
+            else
+            {
+                this.name_er.Visibility = Visibility.Collapsed;
+            }
         }
     }
 }

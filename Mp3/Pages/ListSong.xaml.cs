@@ -1,6 +1,8 @@
-﻿using Mp3.Service;
+﻿using Mp3.Entity;
+using Mp3.Service;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -23,7 +25,8 @@ namespace Mp3.Pages
     /// </summary>
     public sealed partial class ListSong : Page
     {
-        ISongService songService;
+        private ISongService songService;
+        ObservableCollection<Song> songs;
         public ListSong()
         {
             this.InitializeComponent();
@@ -33,7 +36,7 @@ namespace Mp3.Pages
 
         private void LoadSongs()
         {
-            MyListSong.ItemsSource = songService.GetFreeSongs();
+            songs = songService.GetFreeSongs();
         }
     }
 }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\tvngi\\Source\\Repos\\MP3\\Mp3\\Mp3.csproj": {}
+    "C:\\Users\\tvngi\\source\\repos\\Mp3\\Mp3\\Mp3.csproj": {}
   },
   "projects": {
-    "C:\\Users\\tvngi\\Source\\Repos\\MP3\\Mp3\\Mp3.csproj": {
+    "C:\\Users\\tvngi\\source\\repos\\Mp3\\Mp3\\Mp3.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\tvngi\\Source\\Repos\\MP3\\Mp3\\Mp3.csproj",
+        "projectUniqueName": "C:\\Users\\tvngi\\source\\repos\\Mp3\\Mp3\\Mp3.csproj",
         "projectName": "Mp3",
-        "projectPath": "C:\\Users\\tvngi\\Source\\Repos\\MP3\\Mp3\\Mp3.csproj",
+        "projectPath": "C:\\Users\\tvngi\\source\\repos\\Mp3\\Mp3\\Mp3.csproj",
         "packagesPath": "C:\\Users\\tvngi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\tvngi\\Source\\Repos\\MP3\\Mp3\\obj\\",
+        "outputPath": "C:\\Users\\tvngi\\source\\repos\\Mp3\\Mp3\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [
