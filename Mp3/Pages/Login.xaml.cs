@@ -25,28 +25,33 @@ namespace Mp3.Pages
     /// </summary>
     public sealed partial class Login : Page
     {
-        MemberService memberService;
-
+        MemberServiceImp memberService;
         public Login()
         {
             this.InitializeComponent();
-            this.memberService = new MemberServiceImp();
-            ////Doc file chua token:
-            //Windows.Storage.StorageFolder storageFolder =
-            //    Windows.Storage.ApplicationData.Current.LocalFolder;
-            //Windows.Storage.StorageFile tokenFile =
-            //     storageFolder.GetFileAsync("token.txt").GetAwaiter().GetResult();
-            //var token1 = Windows.Storage.FileIO.ReadTextAsync(tokenFile).GetAwaiter().GetResult();
-            //Debug.WriteLine(token1);
+            memberService = new MemberServiceImp();
 
-            ////Lay info tu APi bang token:
-            //Member memberLogin = memberService.GetInformation(token1, INFORMATION_URL);
-            //Debug.WriteLine("Email da dang nhap: " + memberLogin.email);
+            //Lay token da luu file trong lan dang nhap trc:
+            var token = memberService.ReadTokenFromLocalStorage();
+            Debug.WriteLine("Token lay tu file: "+token);
+
+            //Lay info tu APi bang token:
+            Member memberLogin = memberService.GetInformation(token);
+            Debug.WriteLine("Email da dang nhap: " + memberLogin.email);
         }
 
         private void ButtonLogin_Click(object sender, RoutedEventArgs e)
         {
             string token = memberService.Login(this.email.Text, this.password.Password);
+            if (token == null)
+            {
+                //Show errors
+            }
+            else
+            {
+                //Show success
+
+            }
         }
 
         private void ButtonReset_Click(object sender, RoutedEventArgs e)
@@ -59,5 +64,6 @@ namespace Mp3.Pages
             this.email.Text = string.Empty;
             this.password.Password = string.Empty;
         }
+        
     }
 }

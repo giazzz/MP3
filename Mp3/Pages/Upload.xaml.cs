@@ -31,14 +31,25 @@ namespace Mp3.Pages
     public sealed partial class Upload : Page
     {
         private ISongService songService;
-        
+        MemberServiceImp memberService;
+        private string loginToken;
         public Upload()
         {
-            this.InitializeComponent();
-            this.songService = new SongServiceImp();
+            this.memberService = new MemberServiceImp();
+            loginToken = memberService.ReadTokenFromLocalStorage();
+            Debug.WriteLine("Login token in Upload: "+loginToken);
+            if(loginToken == null)
+            {
+                //Show popup not login:
+                Debug.WriteLine("Ban chua dang nhap!!!");
+            }
+            else
+            {
+                this.InitializeComponent();
+                this.songService = new SongServiceImp();
+            }
         }
-
-        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        private void Button_Upload(object sender, RoutedEventArgs e)
         {
             var errors = new Dictionary<string, string>();
             var uploadSong = new Song
@@ -55,7 +66,7 @@ namespace Mp3.Pages
             {
                 ResetAllErrorsToHidden();
                 //Upload:
-                uploadSong = songService.PostSongFree(uploadSong);
+                uploadSong = songService.PostSong(uploadSong, loginToken);
                 //Check null::
                 if (uploadSong == null)
                 {
@@ -64,6 +75,7 @@ namespace Mp3.Pages
                 else
                 {
                     //Show success
+                    ResetTextbox();
                 }
             }
             else
@@ -91,6 +103,21 @@ namespace Mp3.Pages
             {
                 this.name_er.Visibility = Visibility.Collapsed;
             }
+        }
+
+        private void Button_Reset(object sender, RoutedEventArgs e)
+        {
+            ResetTextbox();
+        }
+
+        private void ResetTextbox()
+        {
+            this.name.Text = "";
+            this.description.Text = "";
+            this.singer.Text = "";
+            this.author.Text = "";
+            this.thumbnail.Text = "";
+            this.link.Text = "";
         }
     }
 }

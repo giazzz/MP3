@@ -52,7 +52,6 @@ namespace Mp3.Service
         {
             return true;
         }
-
         private void SaveTokenToLocalStorage(string token)
         {
             Windows.Storage.StorageFolder storageFolder =
@@ -61,6 +60,24 @@ namespace Mp3.Service
                  storageFolder.CreateFileAsync("token.txt",
                     Windows.Storage.CreationCollisionOption.ReplaceExisting).GetAwaiter().GetResult();
             Windows.Storage.FileIO.WriteTextAsync(tokenFile, token).GetAwaiter().GetResult();
+            
+        }
+        public string ReadTokenFromLocalStorage()
+        {
+            try
+            {
+                Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
+                Windows.Storage.StorageFile tokenFile = storageFolder.GetFileAsync("token.txt").GetAwaiter().GetResult();
+                //Debug.WriteLine(tokenFile.Path);
+                var token = Windows.Storage.FileIO.ReadTextAsync(tokenFile).GetAwaiter().GetResult();
+                return token;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e.Message);
+                return null;
+            }
+
         }
 
         public Member Register(Member member)
@@ -70,7 +87,7 @@ namespace Mp3.Service
                 var httpClient = new HttpClient();
                 HttpContent content = new StringContent(JsonConvert.SerializeObject(member), Encoding.UTF8,
                     "application/json");
-                Task<HttpResponseMessage> httpRequestMessage = httpClient.PostAsync(ApiUrl.REGISTER_URL, content);
+                Task<HttpResponseMessage> httpRequestMessage = httpClient.PostAsync(ApiUrl.MEMBER_URL, content);
                 var responseContent = httpRequestMessage.Result.Content.ReadAsStringAsync().Result;
                 //Convert json to ofject C#:
                 Member resMember = JsonConvert.DeserializeObject<Member>(responseContent);

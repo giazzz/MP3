@@ -10,7 +10,7 @@ namespace Mp3.Service
 {
     interface ISongService
     {
-        Song PostSongFree(Song song);
-        ObservableCollection<Song> GetFreeSongs();
+        Song PostSong(Song song, string token);
+        ObservableCollection<Song> GetAllSongs(string token);
     }
 }

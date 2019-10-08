@@ -3,6 +3,7 @@ using Mp3.Service;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -27,16 +28,29 @@ namespace Mp3.Pages
     {
         private ISongService songService;
         ObservableCollection<Song> songs;
+        MemberServiceImp memberService;
+        private string loginToken;
         public ListSong()
         {
-            this.InitializeComponent();
-            this.songService = new SongServiceImp();
-            LoadSongs();
+
+            this.memberService = new MemberServiceImp();
+            loginToken = memberService.ReadTokenFromLocalStorage();
+            if (loginToken == null)
+            {
+                Debug.WriteLine("Ban chua dang nhap!!!");
+            }
+            else
+            {
+                this.InitializeComponent();
+                this.songService = new SongServiceImp();
+                LoadSongs();
+            }
+            
         }
 
         private void LoadSongs()
         {
-            songs = songService.GetFreeSongs();
+            songs = songService.GetAllSongs(loginToken);
         }
     }
 }

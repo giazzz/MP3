@@ -75,8 +75,16 @@
                 <TextBox Grid.Column='1' x:Name="link"></TextBox>
                 <TextBlock Grid.Column="2" x:Name="link_er" Foreground="Red"></TextBlock>
             </Grid>
-
-            <Button Click="ButtonBase_OnClick">Upload</Button>
+            
+            <Grid Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="100"/>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0" Click="Button_Upload">Upload</Button>
+                <Button Grid.Column="1" Click="Button_Reset">Upload</Button>
+            </Grid>
+            
         </StackPanel>
     </ScrollViewer>
 </Page>
