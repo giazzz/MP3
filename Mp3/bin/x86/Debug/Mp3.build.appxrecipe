@@ -82,12 +82,6 @@
     <AppxPackagedFile Include="C:\Users\tvngi\source\repos\Mp3\Mp3\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\tvngi\source\repos\Mp3\Mp3\bin\x86\Debug\Pages\EditProfile.xbf">
-      <PackagePath>Pages\EditProfile.xbf</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\tvngi\source\repos\Mp3\Mp3\bin\x86\Debug\Pages\FileHandle.xbf">
-      <PackagePath>Pages\FileHandle.xbf</PackagePath>
-    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\tvngi\source\repos\Mp3\Mp3\bin\x86\Debug\Pages\ListSong.xbf">
       <PackagePath>Pages\ListSong.xbf</PackagePath>
     </AppxPackagedFile>

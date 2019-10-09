@@ -1,5 +1,10 @@
-﻿using System;
+﻿using Mp3.Constant;
+using Mp3.Entity;
+using Mp3.Service;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -22,9 +27,28 @@ namespace Mp3.Pages
     /// </summary>
     public sealed partial class MySong : Page
     {
+        private ISongService songService;
+        ObservableCollection<Song> songs;
+        MemberServiceImp memberService;
+        private string loginToken;
         public MySong()
         {
-            this.InitializeComponent();
+            this.memberService = new MemberServiceImp();
+            loginToken = memberService.ReadTokenFromLocalStorage();
+            if (loginToken == null)
+            {
+                Debug.WriteLine("Ban chua dang nhap!!!");
+            }
+            else
+            {
+                this.InitializeComponent();
+                this.songService = new SongServiceImp();
+                LoadSongs();
+            }
+        }
+        private void LoadSongs()
+        {
+            songs = songService.GetSongs(loginToken, ApiUrl.GET_MINE_SONG_URL);
         }
     }
 }

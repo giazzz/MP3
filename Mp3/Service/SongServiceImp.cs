@@ -16,12 +16,12 @@ namespace Mp3.Service
     class SongServiceImp : ISongService
     {
         
-        public ObservableCollection<Song> GetAllSongs(string token)
+        public ObservableCollection<Song> GetSongs(string token, string apiUrl)
         {
             ObservableCollection<Song> songs = new ObservableCollection<Song>();
             var client = new HttpClient();
             client.DefaultRequestHeaders.Add("Authorization", "Basic " + token);
-            var responseContent = client.GetAsync(ApiUrl.SONG_URL).Result.Content.ReadAsStringAsync().Result;
+            var responseContent = client.GetAsync(apiUrl).Result.Content.ReadAsStringAsync().Result;
             songs = JsonConvert.DeserializeObject<ObservableCollection<Song>>(responseContent);
             return songs;
         }

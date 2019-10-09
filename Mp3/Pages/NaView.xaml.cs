@@ -44,8 +44,6 @@ namespace Mp3.Pages
             ("login", typeof(Login)),
             ("register", typeof(Register)),
             ("profile", typeof(Profile)),
-            ("editprofile", typeof(EditProfile)),
-            ("file", typeof(FileHandle)),
             ("listsong", typeof(ListSong)),
 
         };

@@ -1,4 +1,5 @@
-﻿using Mp3.Entity;
+﻿using Mp3.Constant;
+using Mp3.Entity;
 using Mp3.Service;
 using System;
 using System.Collections.Generic;
@@ -45,12 +46,10 @@ namespace Mp3.Pages
                 this.songService = new SongServiceImp();
                 LoadSongs();
             }
-            
         }
-
         private void LoadSongs()
         {
-            songs = songService.GetAllSongs(loginToken);
+            songs = songService.GetSongs(loginToken, ApiUrl.SONG_URL);
         }
     }
 }

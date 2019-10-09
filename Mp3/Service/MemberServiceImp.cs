@@ -22,7 +22,6 @@ namespace Mp3.Service
             Member mem = Newtonsoft.Json.JsonConvert.DeserializeObject<Member>(responseContent);
             return mem;
         }
-
         public string Login(string username, string password)
         {
             try
@@ -38,6 +37,8 @@ namespace Mp3.Service
                     throw new Exception("Login fails!");
                 }
                 var token = GetTokenFromApi(memberLogin);
+                Debug.WriteLine("Token lay trong login: "+token);
+
                 SaveTokenToLocalStorage(token);
                 return token;
             }
@@ -47,7 +48,6 @@ namespace Mp3.Service
                 return null;
             }
         }
-
         private bool ValidateMemberLogin(MemberLogin memberLogin)
         {
             return true;
@@ -60,7 +60,6 @@ namespace Mp3.Service
                  storageFolder.CreateFileAsync("token.txt",
                     Windows.Storage.CreationCollisionOption.ReplaceExisting).GetAwaiter().GetResult();
             Windows.Storage.FileIO.WriteTextAsync(tokenFile, token).GetAwaiter().GetResult();
-            
         }
         public string ReadTokenFromLocalStorage()
         {
@@ -77,9 +76,7 @@ namespace Mp3.Service
                 Debug.WriteLine(e.Message);
                 return null;
             }
-
         }
-
         public Member Register(Member member)
         {
             try
@@ -109,6 +106,5 @@ namespace Mp3.Service
             JObject jsonJObject = JObject.Parse(responseContent);
             return jsonJObject["token"].ToString();
         }
-
     }
 }

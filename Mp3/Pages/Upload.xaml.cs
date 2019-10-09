@@ -33,15 +33,20 @@ namespace Mp3.Pages
         private ISongService songService;
         MemberServiceImp memberService;
         private string loginToken;
+
         public Upload()
         {
+
             this.memberService = new MemberServiceImp();
             loginToken = memberService.ReadTokenFromLocalStorage();
-            Debug.WriteLine("Login token in Upload: "+loginToken);
+            //Debug.WriteLine("Login token in Upload: "+loginToken);
             if(loginToken == null)
             {
                 //Show popup not login:
-                Debug.WriteLine("Ban chua dang nhap!!!");
+                //Debug.WriteLine("Ban chua dang nhap!!!");
+                this.InitializeComponent();
+                this.Frame.Navigate(typeof(Login));
+
             }
             else
             {
@@ -49,7 +54,7 @@ namespace Mp3.Pages
                 this.songService = new SongServiceImp();
             }
         }
-        private void Button_Upload(object sender, RoutedEventArgs e)
+        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
             var errors = new Dictionary<string, string>();
             var uploadSong = new Song

@@ -39,7 +39,6 @@ namespace Mp3.Pages
             Member memberLogin = memberService.GetInformation(token);
             Debug.WriteLine("Email da dang nhap: " + memberLogin.email);
         }
-
         private void ButtonLogin_Click(object sender, RoutedEventArgs e)
         {
             string token = memberService.Login(this.email.Text, this.password.Password);
@@ -53,7 +52,6 @@ namespace Mp3.Pages
 
             }
         }
-
         private void ButtonReset_Click(object sender, RoutedEventArgs e)
         {
             ResetLoginForm();
