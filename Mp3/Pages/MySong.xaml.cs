@@ -46,6 +46,11 @@ namespace Mp3.Pages
                 this.InitializeComponent();
                 this.songService = new SongServiceImp();
                 LoadSongs();
+                if (_songs.Count == 0)
+                {
+                    this.empty.Visibility = Visibility.Visible;
+                    this.media.Visibility = Visibility.Collapsed;
+                }
             }
         }
         private void LoadSongs()
@@ -118,6 +123,11 @@ namespace Mp3.Pages
                 _currentIndex = 0;
             }
             Play();
+        }
+
+        private void RedirectUpload(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(Upload));
         }
     }
 }

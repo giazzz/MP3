@@ -10,18 +10,27 @@
 
     <Grid>
         <StackPanel HorizontalAlignment="Center">
-            <TextBlock HorizontalAlignment="Center" FontSize="24">Login</TextBlock>
+            <TextBlock HorizontalAlignment="Center" FontSize="24" Margin="0, 0, 0, 20">Login</TextBlock>
+            <PersonPicture
+                    DisplayName="Betsy Sherman"
+                    ProfilePicture="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuX9EkC7atdtErzu--5fZDIdyzaTr4aBNFskqvF66Pok5MaL63"
+                    Height="200"
+                    Initials="BS" Width="200" />
             <ScrollViewer Margin="20">
-                <StackPanel Margin="50" HorizontalAlignment="Left" VerticalAlignment="Top">
+                <StackPanel Margin="20" HorizontalAlignment="Left" VerticalAlignment="Top">
 
                     <TextBlock>Email</TextBlock>
-                    <TextBox Width="200" x:Name="email"></TextBox>
+                    <TextBox Width="300" x:Name="email"></TextBox>
+                    <TextBlock Width="300" x:Name="email_er" Foreground="Red" Visibility="Collapsed"></TextBlock>
 
                     <TextBlock>Password</TextBlock>
-                    <PasswordBox Width="200" x:Name="password"></PasswordBox>
-
-                    <Button Click="ButtonLogin_Click">Login</Button>
-                    <Button Click="ButtonReset_Click">Reset</Button>
+                    <PasswordBox Width="300" x:Name="password"></PasswordBox>
+                    <TextBlock Width="300" x:Name="password_er" Foreground="Red" Visibility="Collapsed"></TextBlock>
+                    <RelativePanel Margin="0, 40, 0, 0">
+                        <Button x:Name="loginButton" Click="ButtonLogin_Click" Width="80" Margin="0, 0, 140, 0">Login</Button>
+                        <Button Click="ButtonReset_Click" RelativePanel.RightOf="loginButton" Width="80">Reset</Button>
+                    </RelativePanel>
+                    
                 </StackPanel>
             </ScrollViewer>
         </StackPanel>

@@ -40,17 +40,19 @@ namespace Mp3.Pages
 
             //Combobox gender:
             Dictionary<String, int> genders = new Dictionary<string, int>();
+            genders.Add("------", -1);
             genders.Add("Female", 0);
             genders.Add("Male", 1);
             this.gender.ItemsSource = genders;
             this.gender.SelectedValuePath = "Value";
             this.gender.DisplayMemberPath = "Key";
+            this.gender.SelectedValue = -1;
         }
 
 
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
-            
+            var errors = new Dictionary<string, string>();
             var member = new Member
             {
                 firstName = this.firstname.Text,
@@ -63,21 +65,44 @@ namespace Mp3.Pages
                 gender = (int)this.gender.SelectedValue,
                 introduction = this.introduction.Text,
                 phone = this.phone.Text
-
             };
-            member = memberService.Register(member);
-            if (member == null)
+            Debug.WriteLine("Birthday: "+member.birthday);
+
+            errors = member.Validate();
+            if (errors.Count == 0)
             {
-                //Show error
+                var memberRes = memberService.Register(member);
+                if (memberRes == null)
+                {
+                    //Show error
+                    Dialog.RegisterFailedDialog();
+                }
+                else
+                {
+                    //Show success
+                    var token = memberService.Login(this.email.Text, this.password.Password);
+                    Dialog.RegisterSuccessfullDialog();
+                    MemberLoginAction.ShowMenuIfLogged();
+                    Frame.Navigate(typeof(ListSong));
+                }
             }
             else
             {
-                //Show success
-                Debug.WriteLine("Pass tra ve: "+member.password);
-                Debug.WriteLine("Pass trong o text: "+this.password.Password);
-                var token = memberService.Login(member.email, member.password);
-                Frame.Navigate(typeof(ListSong));
+                ShowError(errors);
             }
+        }
+        private void ShowError(Dictionary<string, string> errors)
+        {
+            ValidateMessage mes = new ValidateMessage();
+            mes.ErrorMessage(errors, "firstName", firstname_er);
+            mes.ErrorMessage(errors, "lastName", lastname_er);
+            mes.ErrorMessage(errors, "phone", phone_er);
+            mes.ErrorMessage(errors, "adrress", address_er);
+            mes.ErrorMessage(errors, "introduction", introduction_er);
+            mes.ErrorMessage(errors, "gender", gender_er);
+            mes.ErrorMessage(errors, "birthday", birthday_er);
+            mes.ErrorMessage(errors, "email", email_er);
+            mes.ErrorMessage(errors, "password", password_er);
         }
 
         private void Button_Cancel(object sender, RoutedEventArgs e)

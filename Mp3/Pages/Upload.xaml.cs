@@ -68,16 +68,20 @@ namespace Mp3.Pages
             {
                 ResetAllErrorsToHidden();
                 //Upload:
-                uploadSong = songService.PostSong(uploadSong, loginToken);
+                var uploadSongRes = songService.PostSong(uploadSong, loginToken);
+                Debug.WriteLine(uploadSongRes);
                 //Check null::
-                if (uploadSong == null)
+                if (uploadSongRes.name == null && uploadSongRes.singer == null)
                 {
                     //Show error
+                    Dialog.UploadSongFailedDialog();
                 }
                 else
                 {
                     //Show success
+                    Dialog.UploadSongSuccessfullDialog();
                     ResetTextbox();
+                    Frame.Navigate(typeof(MySong));
                 }
             }
             else

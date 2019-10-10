@@ -37,7 +37,6 @@ namespace Mp3.Service
 
         public Song PostSong(Song song,string token)
         {
-            
             try
             {
                 var httpClient = new HttpClient();
@@ -45,9 +44,10 @@ namespace Mp3.Service
                 HttpContent content = new StringContent(JsonConvert.SerializeObject(song), Encoding.UTF8,
                     "application/json");
                 Task<HttpResponseMessage> httpRequestMessage = httpClient.PostAsync(ApiUrl.SONG_URL, content);
-               
                 var responseContent = httpRequestMessage.Result.Content.ReadAsStringAsync().Result;
                 var resSong = JsonConvert.DeserializeObject<Song>(responseContent);
+                Debug.WriteLine(responseContent);
+                
                 return resSong;
             }
             catch (Exception e)

@@ -120,6 +120,8 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Constant\ApiUrl.cs" />
+    <Compile Include="Constant\Dialog.cs" />
+    <Compile Include="Constant\RegexCheck.cs" />
     <Compile Include="Entity\Member.cs" />
     <Compile Include="Entity\MemberLogin.cs" />
     <Compile Include="Entity\Song.cs" />
@@ -158,6 +160,7 @@
     <Compile Include="Service\MemberService.cs" />
     <Compile Include="Service\MemberServiceImp.cs" />
     <Compile Include="Service\SongServiceImp.cs" />
+    <Compile Include="Service\ValidateMessage.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">

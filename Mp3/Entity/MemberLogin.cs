@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Mp3.Constant;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,5 +11,26 @@ namespace Mp3.Entity
     {
         public string email { get; set; }
         public string password { get; set; }
+
+        public Dictionary<string, string> errors = new Dictionary<string, string>();
+        public Dictionary<string, string> Validate()
+        {
+            RegexCheck regexCheck = new RegexCheck();
+            //Email:
+            if (string.IsNullOrEmpty(email))
+            {
+                errors.Add("email", "Email must required!");
+            }
+            else if (!regexCheck.MailCheck(email))
+            {
+                errors.Add("email", "Email is not valid!");
+            }
+            //Password:
+            if (string.IsNullOrEmpty(password))
+            {
+                errors.Add("password", "Password must required!");
+            }
+            return errors;
+        }
     }
 }

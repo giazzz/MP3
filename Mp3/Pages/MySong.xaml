@@ -10,6 +10,10 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed" x:Name="empty">
+            <TextBlock HorizontalAlignment="Center">Empty! Do you want upload a song?</TextBlock>
+            <Button Click="RedirectUpload" Margin="0, 20,0,0" HorizontalAlignment="Center">Upload</Button>
+        </StackPanel>
         <StackPanel>
             <ListView x:Name="MyListSong" >
                 <ListView.ItemTemplate>
@@ -30,7 +34,7 @@
             </ListView>
         </StackPanel>
 
-        <StackPanel VerticalAlignment="Bottom">
+        <StackPanel VerticalAlignment="Bottom" x:Name="media">
             <MediaElement x:Name="MyMediaPlayer"/>
             <CommandBar>
                 <AppBarSeparator/>

@@ -1,4 +1,5 @@
-﻿using Mp3.Entity;
+﻿using Mp3.Constant;
+using Mp3.Entity;
 using Mp3.Service;
 using System;
 using System.Collections.Generic;
@@ -30,29 +31,65 @@ namespace Mp3.Pages
         {
             this.InitializeComponent();
             memberService = new MemberServiceImp();
-
             //Lay token da luu file trong lan dang nhap trc:
             var token = memberService.ReadTokenFromLocalStorage();
-            Debug.WriteLine("Token lay tu file: "+token);
-
             //Lay info tu APi bang token:
             Member memberLogin = memberService.GetInformation(token);
-            Debug.WriteLine("Email da dang nhap: " + memberLogin.email);
         }
         private void ButtonLogin_Click(object sender, RoutedEventArgs e)
         {
-            string token = memberService.Login(this.email.Text, this.password.Password);
-            if (token == null)
+            var errors = new Dictionary<string, string>();
+            MemberLogin mem = new MemberLogin
             {
-                //Show errors
+                email = this.email.Text,
+                password = this.password.Password
+            };
+            errors = mem.Validate();
+            if (errors.Count == 0)
+            {
+                string token = memberService.Login(this.email.Text, this.password.Password);
+                if (token == null)
+                {
+                    //Show errors
+                    Dialog.LoginFailedDialog();
+                }
+                else
+                {
+                    //Show success
+                    Dialog.LoginSuccessfullDialog();
+                    MemberLoginAction.ShowMenuIfLogged();
+                    Frame.Navigate(typeof(MySong));
+                }
             }
             else
             {
-                //Show success
-                MemberLoginAction.ShowMenuIfLogged();
-                Frame.Navigate(typeof(MySong));
+                ShowError(errors);
+            }
+            
+        }
+
+        private void ShowError(Dictionary<string, string> errors)
+        {
+            if (errors.ContainsKey("email"))
+            {
+                this.email_er.Visibility = Visibility.Visible;
+                this.email_er.Text = errors["email"];
+            }
+            else
+            {
+                this.email_er.Visibility = Visibility.Collapsed;
+            }
+            if (errors.ContainsKey("password"))
+            {
+                this.password_er.Visibility = Visibility.Visible;
+                this.password_er.Text = errors["password"];
+            }
+            else
+            {
+                this.password_er.Visibility = Visibility.Collapsed;
             }
         }
+
         private void ButtonReset_Click(object sender, RoutedEventArgs e)
         {
             ResetLoginForm();
@@ -63,6 +100,5 @@ namespace Mp3.Pages
             this.email.Text = string.Empty;
             this.password.Password = string.Empty;
         }
-        
     }
 }
