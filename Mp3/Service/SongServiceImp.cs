@@ -26,6 +26,15 @@ namespace Mp3.Service
             return songs;
         }
 
+        public ObservableCollection<Song> GetSongs(string apiUrl)
+        {
+            ObservableCollection<Song> songs = new ObservableCollection<Song>();
+            var client = new HttpClient();
+            var responseContent = client.GetAsync(apiUrl).Result.Content.ReadAsStringAsync().Result;
+            songs = JsonConvert.DeserializeObject<ObservableCollection<Song>>(responseContent);
+            return songs;
+        }
+
         public Song PostSong(Song song,string token)
         {
             

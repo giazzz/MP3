@@ -7,8 +7,6 @@ C:\Users\tvngi\source\repos\Mp3\Mp3\obj\x86\Debug\Pages\Login.g.i.cs
 C:\Users\tvngi\source\repos\Mp3\Mp3\obj\x86\Debug\Pages\Login.g.cs
 C:\Users\tvngi\source\repos\Mp3\Mp3\obj\x86\Debug\Pages\MySong.g.i.cs
 C:\Users\tvngi\source\repos\Mp3\Mp3\obj\x86\Debug\Pages\MySong.g.cs
-C:\Users\tvngi\source\repos\Mp3\Mp3\obj\x86\Debug\Pages\NewestSong.g.i.cs
-C:\Users\tvngi\source\repos\Mp3\Mp3\obj\x86\Debug\Pages\NewestSong.g.cs
 C:\Users\tvngi\source\repos\Mp3\Mp3\obj\x86\Debug\Pages\Profile.g.i.cs
 C:\Users\tvngi\source\repos\Mp3\Mp3\obj\x86\Debug\Pages\Profile.g.cs
 C:\Users\tvngi\source\repos\Mp3\Mp3\obj\x86\Debug\Pages\Register.g.i.cs
@@ -20,7 +18,6 @@ C:\Users\tvngi\source\repos\Mp3\Mp3\obj\x86\Debug\App.xaml
 C:\Users\tvngi\source\repos\Mp3\Mp3\obj\x86\Debug\MainPage.xaml
 C:\Users\tvngi\source\repos\Mp3\Mp3\obj\x86\Debug\Pages\Login.xaml
 C:\Users\tvngi\source\repos\Mp3\Mp3\obj\x86\Debug\Pages\MySong.xaml
-C:\Users\tvngi\source\repos\Mp3\Mp3\obj\x86\Debug\Pages\NewestSong.xaml
 C:\Users\tvngi\source\repos\Mp3\Mp3\obj\x86\Debug\Pages\Profile.xaml
 C:\Users\tvngi\source\repos\Mp3\Mp3\obj\x86\Debug\Pages\Register.xaml
 C:\Users\tvngi\source\repos\Mp3\Mp3\obj\x86\Debug\Pages\Upload.xaml
@@ -28,7 +25,6 @@ C:\Users\tvngi\source\repos\Mp3\Mp3\obj\x86\Debug\App.xbf
 C:\Users\tvngi\source\repos\Mp3\Mp3\obj\x86\Debug\MainPage.xbf
 C:\Users\tvngi\source\repos\Mp3\Mp3\obj\x86\Debug\Pages\Login.xbf
 C:\Users\tvngi\source\repos\Mp3\Mp3\obj\x86\Debug\Pages\MySong.xbf
-C:\Users\tvngi\source\repos\Mp3\Mp3\obj\x86\Debug\Pages\NewestSong.xbf
 C:\Users\tvngi\source\repos\Mp3\Mp3\obj\x86\Debug\Pages\Profile.xbf
 C:\Users\tvngi\source\repos\Mp3\Mp3\obj\x86\Debug\Pages\Register.xbf
 C:\Users\tvngi\source\repos\Mp3\Mp3\obj\x86\Debug\Pages\Upload.xbf
@@ -38,7 +34,6 @@ C:\Users\tvngi\source\repos\Mp3\Mp3\bin\x86\Debug\MainPage.xbf
 C:\Users\tvngi\source\repos\Mp3\Mp3\bin\x86\Debug\Pages\Login.xbf
 C:\Users\tvngi\source\repos\Mp3\Mp3\bin\x86\Debug\Pages\MySong.xbf
 C:\Users\tvngi\source\repos\Mp3\Mp3\bin\x86\Debug\Pages\NaView.xbf
-C:\Users\tvngi\source\repos\Mp3\Mp3\bin\x86\Debug\Pages\NewestSong.xbf
 C:\Users\tvngi\source\repos\Mp3\Mp3\bin\x86\Debug\Pages\Profile.xbf
 C:\Users\tvngi\source\repos\Mp3\Mp3\bin\x86\Debug\Pages\Register.xbf
 C:\Users\tvngi\source\repos\Mp3\Mp3\bin\x86\Debug\Pages\Upload.xbf
@@ -91,3 +86,8 @@ C:\Users\tvngi\source\repos\Mp3\Mp3\obj\x86\Debug\Pages\ListSong.g.i.cs
 C:\Users\tvngi\source\repos\Mp3\Mp3\obj\x86\Debug\Pages\ListSong.g.cs
 C:\Users\tvngi\source\repos\Mp3\Mp3\obj\x86\Debug\Pages\ListSong.xaml
 C:\Users\tvngi\source\repos\Mp3\Mp3\obj\x86\Debug\Pages\ListSong.xbf
+C:\Users\tvngi\source\repos\Mp3\Mp3\bin\x86\Debug\Pages\FreeSong.xbf
+C:\Users\tvngi\source\repos\Mp3\Mp3\obj\x86\Debug\Pages\FreeSong.g.i.cs
+C:\Users\tvngi\source\repos\Mp3\Mp3\obj\x86\Debug\Pages\FreeSong.g.cs
+C:\Users\tvngi\source\repos\Mp3\Mp3\obj\x86\Debug\Pages\FreeSong.xaml
+C:\Users\tvngi\source\repos\Mp3\Mp3\obj\x86\Debug\Pages\FreeSong.xbf

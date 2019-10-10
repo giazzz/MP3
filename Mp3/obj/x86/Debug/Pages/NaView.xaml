@@ -5,6 +5,7 @@
     xmlns:local="using:Mp3.Pages"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:entity="using:Mp3.Entity"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
@@ -18,52 +19,53 @@
                 <NavigationViewItemSeparator/>
                 <NavigationViewItemHeader x:ConnectionId='3' x:Name="MainPagesHeader"
                                            Content="Main pages"/>
-                <NavigationViewItem Tag="upload" Content="Upload">
+
+                <NavigationViewItem x:ConnectionId='4' Tag="upload" Content="Upload" x:Name="upload">
                     <NavigationViewItem.Icon>
                         <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE752;"/>
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
-                <NavigationViewItem Tag="newestsong" Content="Newest Song">
+
+                <NavigationViewItem x:ConnectionId='5' Tag="listsong" Content="List Song" x:Name="listsong">
                     <NavigationViewItem.Icon>
-                        <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE8F4;"/>
+                        <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE93C;"/>
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
-                <NavigationViewItem Tag="mysong" Icon="Audio" Content="My Song"/>
 
-                <NavigationViewItem Tag="login" Content="Login">
+                <NavigationViewItem x:ConnectionId='6' Tag="mysong" Icon="Audio" Content="My Song" x:Name="mysong"/>
+
+                <NavigationViewItem Tag="freesong" Content="Free Songs">
+                    <NavigationViewItem.Icon>
+                        <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE93C;"/>
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+                
+                <NavigationViewItem x:ConnectionId='7' Tag="login" Content="Login" x:Name="login">
                     <NavigationViewItem.Icon>
                         <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE77B;"/>
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
 
-                <NavigationViewItem Tag="register" Content="Register">
+                <NavigationViewItem x:ConnectionId='8' Tag="register" Content="Register" x:Name="register">
                     <NavigationViewItem.Icon>
                         <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE710;"/>
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
 
-                <NavigationViewItem Tag="profile" Content="User Profile">
+                <NavigationViewItem x:ConnectionId='9' Tag="profile" Content="User Profile" x:Name="profile">
                     <NavigationViewItem.Icon>
                         <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE779;"/>
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
-
-                <NavigationViewItem Tag="listsong" Content="List Free Song">
-                    <NavigationViewItem.Icon>
-                        <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE77B;"/>
-                    </NavigationViewItem.Icon>
-                </NavigationViewItem>
-
             </NavigationView.MenuItems>
-
             <NavigationView.AutoSuggestBox>
                 <!-- See AutoSuggestBox documentation for
                  more info about how to implement search. -->
-                <AutoSuggestBox x:ConnectionId='4' x:Name="NavViewSearchBox" QueryIcon="Find"/>
+                <AutoSuggestBox x:ConnectionId='10' x:Name="NavViewSearchBox" QueryIcon="Find"/>
             </NavigationView.AutoSuggestBox>
 
             <ScrollViewer>
-                <Frame x:ConnectionId='5' x:Name="ContentFrame" Padding="12,0,12,24" IsTabStop="True"
+                <Frame x:ConnectionId='11' x:Name="ContentFrame" Padding="12,0,12,24" IsTabStop="True"
                                                                    />
             </ScrollViewer>
         </NavigationView>
@@ -72,7 +74,7 @@
             <VisualStateGroup>
                 <VisualState>
                     <VisualState.StateTriggers>
-                        <AdaptiveTrigger x:ConnectionId='6'
+                        <AdaptiveTrigger x:ConnectionId='12'
                                                                                    />
                     </VisualState.StateTriggers>
                     <VisualState.Setters>

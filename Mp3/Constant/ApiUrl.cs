@@ -15,5 +15,6 @@ namespace Mp3.Constant
         public const string GET_INFORMATION_URL = BASE_URL + "/members/information";
         public const string SONG_URL = BASE_URL + "/songs";
         public const string GET_MINE_SONG_URL = BASE_URL+ "/songs/get-mine";
+        public const string GET_FREE_SONG_URL = BASE_URL+ "/songs/get-free-songs";
     }
 }

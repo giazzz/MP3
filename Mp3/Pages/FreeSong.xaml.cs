@@ -25,37 +25,24 @@ namespace Mp3.Pages
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class ListSong : Page
+    public sealed partial class FreeSong : Page
     {
         private ISongService songService;
         ObservableCollection<Song> _songs;
-        MemberServiceImp memberService;
-        private string loginToken;
         private bool _isPlaying;
         private int _currentIndex = 0;
-        public ListSong()
+        public FreeSong()
         {
-
-            this.memberService = new MemberServiceImp();
-            loginToken = memberService.ReadTokenFromLocalStorage();
-            if (loginToken == null)
-            {
-                MemberLoginAction.HideMenuIfLogged();
-            }
-            else
-            {
-                this.InitializeComponent();
-                this.songService = new SongServiceImp();
-                LoadSongs();
-            }
+            this.InitializeComponent();
+            songService = new SongServiceImp();
+            LoadSongs();
         }
         private void LoadSongs()
         {
-            _songs = songService.GetSongs(loginToken, ApiUrl.SONG_URL);
+            _songs = songService.GetSongs(ApiUrl.GET_FREE_SONG_URL);
             MyListSong.ItemsSource = _songs;
             _currentIndex = 0;
         }
-
         private void SelectSong(object sender, TappedRoutedEventArgs e)
         {
             var selectItem = sender as StackPanel;

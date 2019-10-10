@@ -19,6 +19,7 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
@@ -39,14 +40,10 @@ namespace Mp3.Pages
 
             this.memberService = new MemberServiceImp();
             loginToken = memberService.ReadTokenFromLocalStorage();
-            //Debug.WriteLine("Login token in Upload: "+loginToken);
             if(loginToken == null)
             {
                 //Show popup not login:
-                //Debug.WriteLine("Ban chua dang nhap!!!");
-                this.InitializeComponent();
-                this.Frame.Navigate(typeof(Login));
-
+                MemberLoginAction.HideMenuIfLogged();
             }
             else
             {

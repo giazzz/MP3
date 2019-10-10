@@ -73,6 +73,10 @@ namespace Mp3.Pages
             else
             {
                 //Show success
+                Debug.WriteLine("Pass tra ve: "+member.password);
+                Debug.WriteLine("Pass trong o text: "+this.password.Password);
+                var token = memberService.Login(member.email, member.password);
+                Frame.Navigate(typeof(ListSong));
             }
         }
 

@@ -49,7 +49,8 @@ namespace Mp3.Pages
             else
             {
                 //Show success
-
+                MemberLoginAction.ShowMenuIfLogged();
+                Frame.Navigate(typeof(MySong));
             }
         }
         private void ButtonReset_Click(object sender, RoutedEventArgs e)

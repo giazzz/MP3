@@ -12,5 +12,6 @@ namespace Mp3.Service
     {
         Song PostSong(Song song, string token);
         ObservableCollection<Song> GetSongs(string token, string apiUrl);
+        ObservableCollection<Song> GetSongs(string apiUrl);
     }
 }

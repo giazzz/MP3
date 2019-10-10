@@ -26,9 +26,27 @@ namespace Mp3.Pages
     /// </summary>
     public sealed partial class NaView : Page
     {
+        MemberServiceImp memberService;
+        private string tokenLogin;
+        //public static Frame mainFrame;
+        public static NavigationViewItem uploadNav;
+        public static NavigationViewItem mysongNav;
+        public static NavigationViewItem listsongNav;
+        public static NavigationViewItem profileNav;
         public NaView()
         {
             this.InitializeComponent();
+            uploadNav = this.upload;
+            mysongNav = this.mysong;
+            listsongNav = this.listsong;
+            profileNav = this.profile;
+
+            memberService = new MemberServiceImp();
+            tokenLogin = memberService.ReadTokenFromLocalStorage();
+            if (tokenLogin == null)
+            {
+                MemberLoginAction.HideMenuIfLogged();
+            }
         }
         private void ContentFrame_NavigationFailed(object sender, NavigationFailedEventArgs e)
         {
@@ -39,15 +57,14 @@ namespace Mp3.Pages
         private readonly List<(string Tag, Type Page)> _pages = new List<(string Tag, Type Page)>
         {
             ("upload", typeof(Upload)),
-            ("newestsong", typeof(NewestSong)),
             ("mysong", typeof(MySong)),
             ("login", typeof(Login)),
             ("register", typeof(Register)),
             ("profile", typeof(Profile)),
             ("listsong", typeof(ListSong)),
+            ("freesong", typeof(FreeSong)),
 
         };
-
         private void NavView_Loaded(object sender, RoutedEventArgs e)
         {
             // You can also add items in code.
@@ -83,6 +100,7 @@ namespace Mp3.Pages
             };
             altLeft.Invoked += BackInvoked;
             this.KeyboardAccelerators.Add(altLeft);
+            
         }
 
         private void NavView_ItemInvoked(NavigationView sender,

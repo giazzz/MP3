@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Mp3.Entity;
+using Mp3.Service;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,9 +24,31 @@ namespace Mp3.Pages
     /// </summary>
     public sealed partial class Profile : Page
     {
+        MemberServiceImp memberService;
+        private string loginToken;
+        private Member memLogged;
         public Profile()
         {
-            this.InitializeComponent();
+            memberService = new MemberServiceImp();
+            loginToken = memberService.ReadTokenFromLocalStorage();
+            if (loginToken == null)
+            {
+                MemberLoginAction.HideMenuIfLogged();
+            }
+            else
+            {
+                this.InitializeComponent();
+                memLogged = memberService.GetInformation(loginToken);
+                if (memLogged.gender == 0)
+                {
+                    this.gender.Text = "Female";
+                }else if (memLogged.gender == 1)
+                {
+                    this.gender.Text = "Male";
+                }
+                DateTime dt = DateTime.Parse(memLogged.birthday);
+                this.birthday.Text = String.Format("{0:ddd, MMM d, yyyy}", dt);
+            }
         }
     }
 }

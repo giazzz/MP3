@@ -82,6 +82,9 @@
     <AppxPackagedFile Include="C:\Users\tvngi\source\repos\Mp3\Mp3\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\tvngi\source\repos\Mp3\Mp3\bin\x86\Debug\Pages\FreeSong.xbf">
+      <PackagePath>Pages\FreeSong.xbf</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\tvngi\source\repos\Mp3\Mp3\bin\x86\Debug\Pages\ListSong.xbf">
       <PackagePath>Pages\ListSong.xbf</PackagePath>
     </AppxPackagedFile>
@@ -93,9 +96,6 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\tvngi\source\repos\Mp3\Mp3\bin\x86\Debug\Pages\NaView.xbf">
       <PackagePath>Pages\NaView.xbf</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\tvngi\source\repos\Mp3\Mp3\bin\x86\Debug\Pages\NewestSong.xbf">
-      <PackagePath>Pages\NewestSong.xbf</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\tvngi\source\repos\Mp3\Mp3\bin\x86\Debug\Pages\Profile.xbf">
       <PackagePath>Pages\Profile.xbf</PackagePath>
