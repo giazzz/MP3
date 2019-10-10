@@ -31,7 +31,7 @@ namespace Mp3.Pages
     public sealed partial class Register : Page
     {
         private StorageFile photo;
-        private string imgUrl = "";
+        private string imgUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTO6b8UmHNot4Ra90A75-m6yRyuI03Q9SgvHgyiwsxHJIXXxJcL";
         MemberService memberService;
         public Register()
         {
