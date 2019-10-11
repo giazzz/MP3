@@ -63,11 +63,8 @@
                  more info about how to implement search. -->
                 <AutoSuggestBox x:ConnectionId='10' x:Name="NavViewSearchBox" QueryIcon="Find"/>
             </NavigationView.AutoSuggestBox>
-
-            <ScrollViewer>
-                <Frame x:ConnectionId='11' x:Name="ContentFrame" Padding="12,0,12,24" IsTabStop="True"
+            <Frame x:ConnectionId='11' x:Name="ContentFrame" Padding="12,0,12,24" IsTabStop="True"
                                                                    />
-            </ScrollViewer>
         </NavigationView>
 
         <VisualStateManager.VisualStateGroups>

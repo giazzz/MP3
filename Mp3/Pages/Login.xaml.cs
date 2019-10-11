@@ -26,7 +26,6 @@ namespace Mp3.Pages
     /// </summary>
     public sealed partial class Login : Page
     {
-        private string token;
         MemberServiceImp memberService;
         public Login()
         {
@@ -85,6 +84,11 @@ namespace Mp3.Pages
         {
             this.email.Text = string.Empty;
             this.password.Password = string.Empty;
+        }
+
+        private void RegisterButtonTextBlock_PointerPressed(object sender, PointerRoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(Register));
         }
     }
 }

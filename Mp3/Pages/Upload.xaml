@@ -8,14 +8,14 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <ScrollViewer Margin="20">
+    <!--<ScrollViewer Margin="20">
         
             
         
         <StackPanel Margin="50" HorizontalAlignment="Left" VerticalAlignment="Top">
             <PersonPicture
                     DisplayName="Betsy Sherman"
-                    ProfilePicture="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuX9EkC7atdtErzu--5fZDIdyzaTr4aBNFskqvF66Pok5MaL63"
+                    ProfilePicture="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuX9EkC7atdtErzu5fZDIdyzaTr4aBNFskqvF66Pok5MaL63"
                     Height="150"
                     Initials="BS" Width="150" />
             <Grid Margin="10">
@@ -94,5 +94,51 @@
             </Grid>
             
         </StackPanel>
-    </ScrollViewer>
+    </ScrollViewer>-->
+
+    <Grid>
+        <ScrollViewer>
+            <StackPanel HorizontalAlignment="Center">
+                <PersonPicture
+                    DisplayName="Betsy Sherman"
+                    ProfilePicture="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuX9EkC7atdtErzu--5fZDIdyzaTr4aBNFskqvF66Pok5MaL63"
+                    Height="200"
+                    Initials="BS" Width="200" />
+            <ScrollViewer Margin="20">
+                <StackPanel Margin="20" HorizontalAlignment="Left" VerticalAlignment="Top">
+
+                    <TextBlock>Name</TextBlock>
+                    <TextBox Width="300" x:Name="name"></TextBox>
+                    <TextBlock Width="300" x:Name="name_er" Foreground="Red" Visibility="Collapsed"></TextBlock>
+
+                    <TextBlock>Description</TextBlock>
+                    <TextBox Width="300" x:Name="description"></TextBox>
+                    <TextBlock Width="300" x:Name="description_er" Foreground="Red" Visibility="Collapsed"></TextBlock>
+
+                    <TextBlock>Singer</TextBlock>
+                    <TextBox Width="300" x:Name="singer"></TextBox>
+                    <TextBlock Width="300" x:Name="singer_er" Foreground="Red" Visibility="Collapsed"></TextBlock>
+
+                    <TextBlock>Author</TextBlock>
+                    <TextBox Width="300" x:Name="author"></TextBox>
+                    <TextBlock Width="300" x:Name="author_er" Foreground="Red" Visibility="Collapsed"></TextBlock>
+
+                    <TextBlock>Thumbnail</TextBlock>
+                    <TextBox Width="300" x:Name="thumbnail"></TextBox>
+                    <TextBlock Width="300" x:Name="thumbnail_er" Foreground="Red" Visibility="Collapsed"></TextBlock>
+
+                    <TextBlock>Link</TextBlock>
+                    <TextBox Width="300" x:Name="link"></TextBox>
+                    <TextBlock Width="300" x:Name="link_er" Foreground="Red" Visibility="Collapsed"></TextBlock>
+
+                    <RelativePanel Margin="0, 40, 0, 0">
+                        <Button x:Name="uploadButton" Click="ButtonBase_OnClick" Width="80" Margin="0, 0, 140, 0">Upload</Button>
+                        <Button Click="Button_Reset" RelativePanel.RightOf="uploadButton" Width="80">Reset</Button>
+                    </RelativePanel>
+                </StackPanel>
+            </ScrollViewer>
+        </StackPanel>
+        </ScrollViewer>
+    </Grid>
+        
 </Page>

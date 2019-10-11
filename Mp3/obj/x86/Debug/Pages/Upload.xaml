@@ -8,8 +8,16 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <ScrollViewer Margin="20">
+    <!--<ScrollViewer Margin="20">
+        
+            
+        
         <StackPanel Margin="50" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <PersonPicture
+                    DisplayName="Betsy Sherman"
+                    ProfilePicture="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuX9EkC7atdtErzu5fZDIdyzaTr4aBNFskqvF66Pok5MaL63"
+                    Height="150"
+                    Initials="BS" Width="150" />
             <Grid Margin="10">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="100"/>
@@ -17,8 +25,8 @@
                     <ColumnDefinition Width="200"/>
                 </Grid.ColumnDefinitions>
                 <TextBlock Grid.Column="0" Text="Name"/>
-                <TextBox x:ConnectionId='14' Grid.Column='1' x:Name="name"></TextBox>
-                <TextBlock x:ConnectionId='15' Grid.Column="2" x:Name="name_er" Foreground="Red" Visibility="Collapsed"></TextBlock>
+                <TextBox Grid.Column='1' x:Name="name"></TextBox>
+                <TextBlock Grid.Column="2" x:Name="name_er" Foreground="Red" Visibility="Collapsed"></TextBlock>
             </Grid>
 
             <Grid Margin="10">
@@ -28,8 +36,8 @@
                     <ColumnDefinition Width="200"/>
                 </Grid.ColumnDefinitions>
                 <TextBlock Grid.Column="0" Text="Description"/>
-                <TextBox x:ConnectionId='12' Grid.Column='1' x:Name="description"></TextBox>
-                <TextBlock x:ConnectionId='13' Grid.Column="2" x:Name="description_er" Foreground="Red"></TextBlock>
+                <TextBox Grid.Column='1' x:Name="description"></TextBox>
+                <TextBlock Grid.Column="2" x:Name="description_er" Foreground="Red"></TextBlock>
             </Grid>
 
             <Grid Margin="10">
@@ -39,8 +47,8 @@
                     <ColumnDefinition Width="200"/>
                 </Grid.ColumnDefinitions>
                 <TextBlock Grid.Column="0" Text="Singer"/>
-                <TextBox x:ConnectionId='10' Grid.Column='1' x:Name="singer"></TextBox>
-                <TextBlock x:ConnectionId='11' Grid.Column="2" x:Name="singer_er" Foreground="Red"></TextBlock>
+                <TextBox Grid.Column='1' x:Name="singer"></TextBox>
+                <TextBlock Grid.Column="2" x:Name="singer_er" Foreground="Red"></TextBlock>
             </Grid>
 
             <Grid Margin="10">
@@ -50,8 +58,8 @@
                     <ColumnDefinition Width="200"/>
                 </Grid.ColumnDefinitions>
                 <TextBlock Grid.Column="0" Text="Author"/>
-                <TextBox x:ConnectionId='8' Grid.Column='1' x:Name="author"></TextBox>
-                <TextBlock x:ConnectionId='9' Grid.Column="2" x:Name="author_er" Foreground="Red"></TextBlock>
+                <TextBox Grid.Column='1' x:Name="author"></TextBox>
+                <TextBlock Grid.Column="2" x:Name="author_er" Foreground="Red"></TextBlock>
             </Grid>
 
             <Grid Margin="10">
@@ -61,8 +69,8 @@
                     <ColumnDefinition Width="200"/>
                 </Grid.ColumnDefinitions>
                 <TextBlock Grid.Column="0" Text="Thumbnail"/>
-                <TextBox x:ConnectionId='6' Grid.Column='1' x:Name="thumbnail"></TextBox>
-                <TextBlock x:ConnectionId='7' Grid.Column="2" x:Name="thumbnail_er" Foreground="Red"></TextBlock>
+                <TextBox Grid.Column='1' x:Name="thumbnail"></TextBox>
+                <TextBlock Grid.Column="2" x:Name="thumbnail_er" Foreground="Red"></TextBlock>
             </Grid>
 
             <Grid Margin="10">
@@ -72,8 +80,8 @@
                     <ColumnDefinition Width="200"/>
                 </Grid.ColumnDefinitions>
                 <TextBlock Grid.Column="0" Text="Link"/>
-                <TextBox x:ConnectionId='4' Grid.Column='1' x:Name="link"></TextBox>
-                <TextBlock x:ConnectionId='5' Grid.Column="2" x:Name="link_er" Foreground="Red"></TextBlock>
+                <TextBox Grid.Column='1' x:Name="link"></TextBox>
+                <TextBlock Grid.Column="2" x:Name="link_er" Foreground="Red"></TextBlock>
             </Grid>
             
             <Grid Margin="10">
@@ -81,11 +89,57 @@
                     <ColumnDefinition Width="100"/>
                     <ColumnDefinition Width="100"/>
                 </Grid.ColumnDefinitions>
-                <Button x:ConnectionId='2' Grid.Column="0"                           >Upload</Button>
-                <Button x:ConnectionId='3' Grid.Column="1"                     >Upload</Button>
+                <Button Grid.Column="0" Click="ButtonBase_OnClick">Upload</Button>
+                <Button Grid.Column="1" Click="Button_Reset">Reset</Button>
             </Grid>
             
         </StackPanel>
-    </ScrollViewer>
+    </ScrollViewer>-->
+
+    <Grid>
+        <ScrollViewer>
+            <StackPanel HorizontalAlignment="Center">
+                <PersonPicture
+                    DisplayName="Betsy Sherman"
+                    ProfilePicture="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuX9EkC7atdtErzu--5fZDIdyzaTr4aBNFskqvF66Pok5MaL63"
+                    Height="200"
+                    Initials="BS" Width="200" />
+            <ScrollViewer Margin="20">
+                <StackPanel Margin="20" HorizontalAlignment="Left" VerticalAlignment="Top">
+
+                    <TextBlock>Name</TextBlock>
+                    <TextBox x:ConnectionId='2' Width="300" x:Name="name"></TextBox>
+                    <TextBlock x:ConnectionId='3' Width="300" x:Name="name_er" Foreground="Red" Visibility="Collapsed"></TextBlock>
+
+                    <TextBlock>Description</TextBlock>
+                    <TextBox x:ConnectionId='4' Width="300" x:Name="description"></TextBox>
+                    <TextBlock x:ConnectionId='5' Width="300" x:Name="description_er" Foreground="Red" Visibility="Collapsed"></TextBlock>
+
+                    <TextBlock>Singer</TextBlock>
+                    <TextBox x:ConnectionId='6' Width="300" x:Name="singer"></TextBox>
+                    <TextBlock x:ConnectionId='7' Width="300" x:Name="singer_er" Foreground="Red" Visibility="Collapsed"></TextBlock>
+
+                    <TextBlock>Author</TextBlock>
+                    <TextBox x:ConnectionId='8' Width="300" x:Name="author"></TextBox>
+                    <TextBlock x:ConnectionId='9' Width="300" x:Name="author_er" Foreground="Red" Visibility="Collapsed"></TextBlock>
+
+                    <TextBlock>Thumbnail</TextBlock>
+                    <TextBox x:ConnectionId='10' Width="300" x:Name="thumbnail"></TextBox>
+                    <TextBlock x:ConnectionId='11' Width="300" x:Name="thumbnail_er" Foreground="Red" Visibility="Collapsed"></TextBlock>
+
+                    <TextBlock>Link</TextBlock>
+                    <TextBox x:ConnectionId='12' Width="300" x:Name="link"></TextBox>
+                    <TextBlock x:ConnectionId='13' Width="300" x:Name="link_er" Foreground="Red" Visibility="Collapsed"></TextBlock>
+
+                    <RelativePanel Margin="0, 40, 0, 0">
+                        <Button x:ConnectionId='14' x:Name="uploadButton"                            Width="80" Margin="0, 0, 140, 0">Upload</Button>
+                        <Button x:ConnectionId='15'                      RelativePanel.RightOf="uploadButton" Width="80">Reset</Button>
+                    </RelativePanel>
+                </StackPanel>
+            </ScrollViewer>
+        </StackPanel>
+        </ScrollViewer>
+    </Grid>
+        
 </Page>
 

@@ -75,7 +75,7 @@ namespace Mp3.Service
             {
                 Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
                 Windows.Storage.StorageFile tokenFile = storageFolder.GetFileAsync("token.txt").GetAwaiter().GetResult();
-                //Debug.WriteLine(tokenFile.Path);
+                Debug.WriteLine(tokenFile.Path);
                 var token = Windows.Storage.FileIO.ReadTextAsync(tokenFile).GetAwaiter().GetResult();
                 return token;
             }

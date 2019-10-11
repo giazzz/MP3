@@ -10,6 +10,7 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
+        <ScrollViewer>
         <StackPanel>
             <ListView x:Name="MyListSong" >
                 <ListView.ItemTemplate>
@@ -29,6 +30,7 @@
                 </ListView.ItemTemplate>
             </ListView>
         </StackPanel>
+        </ScrollViewer>
 
         <StackPanel VerticalAlignment="Bottom">
             <MediaElement x:Name="MyMediaPlayer"/>
@@ -38,9 +40,7 @@
                 <AppBarButton x:Name="StatusButton" Icon="Play" Label="Play" Click="StatusButton_OnClick"/>
                 <AppBarButton x:Name="NextButton" Icon="Next" Label="Next" Click="NextButton_OnClick"/>
                 <CommandBar.Content>
-                    <TextBlock x:Name="ControlLabel" Text="Please choose a song." Margin="12,14">
-                        
-                    </TextBlock>
+                    <TextBlock x:Name="ControlLabel" Text="Please choose a song." Margin="12,14"/>
                 </CommandBar.Content>
             </CommandBar>
         </StackPanel>
