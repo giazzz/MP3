@@ -10,12 +10,12 @@ namespace Mp3.Constant
     class Dialog
     {
 
-        public static async void LoginSuccessfullDialog()
+        public static async void LoginSuccessfullDialog(string name)
         {
             ContentDialog noWifiDialog = new ContentDialog
             {
-                Title = "Welcome",
-                Content = "Login successful!",
+                Title = "Hi, "+ name+"!",
+                Content = "Welcome back. You've been logged in.",
                 CloseButtonText = "Ok"
             };
             ContentDialogResult result = await noWifiDialog.ShowAsync();
@@ -70,6 +70,5 @@ namespace Mp3.Constant
             };
             ContentDialogResult result = await noWifiDialog.ShowAsync();
         }
-
     }
 }

@@ -9,7 +9,15 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <ScrollViewer Margin="20">
+        
+            
+        
         <StackPanel Margin="50" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <PersonPicture
+                    DisplayName="Betsy Sherman"
+                    ProfilePicture="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuX9EkC7atdtErzu--5fZDIdyzaTr4aBNFskqvF66Pok5MaL63"
+                    Height="150"
+                    Initials="BS" Width="150" />
             <Grid Margin="10">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="100"/>
@@ -82,7 +90,7 @@
                     <ColumnDefinition Width="100"/>
                 </Grid.ColumnDefinitions>
                 <Button Grid.Column="0" Click="ButtonBase_OnClick">Upload</Button>
-                <Button Grid.Column="1" Click="Button_Reset">Upload</Button>
+                <Button Grid.Column="1" Click="Button_Reset">Reset</Button>
             </Grid>
             
         </StackPanel>

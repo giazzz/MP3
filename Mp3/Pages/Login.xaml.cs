@@ -26,6 +26,7 @@ namespace Mp3.Pages
     /// </summary>
     public sealed partial class Login : Page
     {
+        private string token;
         MemberServiceImp memberService;
         public Login()
         {
@@ -33,8 +34,7 @@ namespace Mp3.Pages
             memberService = new MemberServiceImp();
             //Lay token da luu file trong lan dang nhap trc:
             var token = memberService.ReadTokenFromLocalStorage();
-            //Lay info tu APi bang token:
-            Member memberLogin = memberService.GetInformation(token);
+            
         }
         private void ButtonLogin_Click(object sender, RoutedEventArgs e)
         {
@@ -56,7 +56,9 @@ namespace Mp3.Pages
                 else
                 {
                     //Show success
-                    Dialog.LoginSuccessfullDialog();
+                    //Lay info tu APi bang token:
+                    Member memberLogin = memberService.GetInformation(token);
+                    Dialog.LoginSuccessfullDialog(memberLogin.lastName);
                     MemberLoginAction.ShowMenuIfLogged();
                     Frame.Navigate(typeof(MySong));
                 }
@@ -67,27 +69,11 @@ namespace Mp3.Pages
             }
             
         }
-
         private void ShowError(Dictionary<string, string> errors)
         {
-            if (errors.ContainsKey("email"))
-            {
-                this.email_er.Visibility = Visibility.Visible;
-                this.email_er.Text = errors["email"];
-            }
-            else
-            {
-                this.email_er.Visibility = Visibility.Collapsed;
-            }
-            if (errors.ContainsKey("password"))
-            {
-                this.password_er.Visibility = Visibility.Visible;
-                this.password_er.Text = errors["password"];
-            }
-            else
-            {
-                this.password_er.Visibility = Visibility.Collapsed;
-            }
+            ValidateMessage mes = new ValidateMessage();
+            mes.ErrorMessage(errors,"email",email_er);
+            mes.ErrorMessage(errors,"password",password_er);
         }
 
         private void ButtonReset_Click(object sender, RoutedEventArgs e)

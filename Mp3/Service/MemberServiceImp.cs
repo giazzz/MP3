@@ -16,11 +16,19 @@ namespace Mp3.Service
     {
         public Member GetInformation(string token)
         {
-            HttpClient client = new HttpClient();
-            client.DefaultRequestHeaders.Add("Authorization", "Basic " + token);
-            var responseContent = client.GetAsync(ApiUrl.GET_INFORMATION_URL).Result.Content.ReadAsStringAsync().Result;
-            Member mem = Newtonsoft.Json.JsonConvert.DeserializeObject<Member>(responseContent);
-            return mem;
+            try
+            {
+                HttpClient client = new HttpClient();
+                client.DefaultRequestHeaders.Add("Authorization", "Basic " + token);
+                var responseContent = client.GetAsync(ApiUrl.GET_INFORMATION_URL).Result.Content.ReadAsStringAsync().Result;
+                Member mem = Newtonsoft.Json.JsonConvert.DeserializeObject<Member>(responseContent);
+                return mem;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e.Message);
+                return null;
+            }
         }
         public string Login(string username, string password)
         {

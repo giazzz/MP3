@@ -1,1 +1,1 @@
-C:\Users\tvngi\source\repos\Mp3\Mp3\Mp3.csproj;x86
+C:\Users\tvngi\source\repos\MP3\MP3\Mp3\Mp3.csproj;x86

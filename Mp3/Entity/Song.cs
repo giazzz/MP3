@@ -22,10 +22,56 @@ namespace Mp3.Entity
             {
                 errors.Add("name", "Name is required!");
             }
-            else if(name.Length < 3 || name.Length > 50)
+            else if(name.Length > 50)
             {
-                errors.Add("name", "Name is between 3 to 50!");
+                errors.Add("name", "Max length is 50!");
             }
+
+            if (string.IsNullOrEmpty(description))
+            {
+                errors.Add("description", "Description is required!");
+            }
+            else if (description.Length > 255)
+            {
+                errors.Add("description", "Max length is 255!");
+            }
+
+            if (string.IsNullOrEmpty(singer))
+            {
+                errors.Add("singer", "Singer is required!");
+            }
+            else if (singer.Length > 50)
+            {
+                errors.Add("singer", "Max length is 50!");
+            }
+
+            if (string.IsNullOrEmpty(author))
+            {
+                errors.Add("author", "Author is required!");
+            }
+            else if (author.Length > 50)
+            {
+                errors.Add("author", "Max length is 50!");
+            }
+            //Thumbnail:
+            if (string.IsNullOrEmpty(thumbnail))
+            {
+                errors.Add("thumbnail", "Thumbnail is required!");
+            }
+            else if (!Uri.IsWellFormedUriString(thumbnail, UriKind.RelativeOrAbsolute))
+            {
+                errors.Add("thumbnail", "Thumbnail is not valid!");
+            }
+            //Link:
+            if (string.IsNullOrEmpty(link))
+            {
+                errors.Add("link", "Link is required!");
+            }
+            else if (!Uri.IsWellFormedUriString(link, UriKind.RelativeOrAbsolute))
+            {
+                errors.Add("link", "Link is not valid!");
+            }
+
             return errors;
         }
 

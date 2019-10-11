@@ -38,7 +38,7 @@ namespace Mp3.Entity
             //Firstname:
             if (string.IsNullOrEmpty(firstName))
             {
-                errors.Add("firstName","Firstname must required!");
+                errors.Add("firstName","Firstname is required!");
             }
             else if(firstName.Length > 50)
             {
@@ -47,7 +47,7 @@ namespace Mp3.Entity
             //Lastname:
             if (string.IsNullOrEmpty(lastName))
             {
-                errors.Add("lastName", "Lastname must required!");
+                errors.Add("lastName", "Lastname is required!");
             }
             else if (lastName.Length > 50)
             {
@@ -56,7 +56,7 @@ namespace Mp3.Entity
             //Phone:
             if (string.IsNullOrEmpty(phone))
             {
-                errors.Add("phone", "Phone must required!");
+                errors.Add("phone", "Phone is required!");
             }else if (!regexCheck.CheckPattern(phone, RegexCheck.phonePattern))
             {
                 errors.Add("phone", "Phone is not valid!");
@@ -64,7 +64,7 @@ namespace Mp3.Entity
             //Address
             if (string.IsNullOrEmpty(address))
             {
-                errors.Add("address", "Address must required!");
+                errors.Add("address", "Address is required!");
             }
             else if (address.Length > 255)
             {
@@ -73,7 +73,7 @@ namespace Mp3.Entity
             //Introduction
             if (string.IsNullOrEmpty(introduction))
             {
-                errors.Add("introduction", "Introduction must required!");
+                errors.Add("introduction", "Introduction is required!");
             }
             else if (introduction.Length > 255)
             {
@@ -92,12 +92,12 @@ namespace Mp3.Entity
             //Password:
             if (string.IsNullOrEmpty(password))
             {
-                errors.Add("password", "Password must required!");
+                errors.Add("password", "Password is required!");
             }
             //Email:
             if (string.IsNullOrEmpty(email))
             {
-                errors.Add("email", "Email must required!");
+                errors.Add("email", "Email is required!");
             }else if (!regexCheck.MailCheck(email))
             {
                 errors.Add("email", "Email is not valid!");

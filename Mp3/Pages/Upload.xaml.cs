@@ -42,7 +42,7 @@ namespace Mp3.Pages
             loginToken = memberService.ReadTokenFromLocalStorage();
             if(loginToken == null)
             {
-                //Show popup not login:
+                //Not login:
                 MemberLoginAction.HideMenuIfLogged();
             }
             else
@@ -100,15 +100,13 @@ namespace Mp3.Pages
         }
         private void ShowErrors(Dictionary<string, string> errors)
         {
-            if (errors.ContainsKey("name"))
-            {
-                this.name_er.Visibility = Visibility.Visible;
-                this.name_er.Text = errors["name"];
-            }
-            else
-            {
-                this.name_er.Visibility = Visibility.Collapsed;
-            }
+            ValidateMessage mes = new ValidateMessage();
+            mes.ErrorMessage(errors,"name",name_er);
+            mes.ErrorMessage(errors,"description",description_er);
+            mes.ErrorMessage(errors,"singer",singer_er);
+            mes.ErrorMessage(errors,"author",author_er);
+            mes.ErrorMessage(errors,"thumbnail",thumbnail_er);
+            mes.ErrorMessage(errors,"link",link_er);
         }
 
         private void Button_Reset(object sender, RoutedEventArgs e)

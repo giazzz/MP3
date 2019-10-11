@@ -19,7 +19,7 @@ namespace Mp3.Entity
             //Email:
             if (string.IsNullOrEmpty(email))
             {
-                errors.Add("email", "Email must required!");
+                errors.Add("email", "Email is required!");
             }
             else if (!regexCheck.MailCheck(email))
             {
@@ -28,7 +28,7 @@ namespace Mp3.Entity
             //Password:
             if (string.IsNullOrEmpty(password))
             {
-                errors.Add("password", "Password must required!");
+                errors.Add("password", "Password is required!");
             }
             return errors;
         }

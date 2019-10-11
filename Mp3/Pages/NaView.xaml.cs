@@ -1,4 +1,6 @@
-﻿using Mp3.Service;
+﻿using Mp3.Constant;
+using Mp3.Entity;
+using Mp3.Service;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -46,6 +48,11 @@ namespace Mp3.Pages
             if (tokenLogin == null)
             {
                 MemberLoginAction.HideMenuIfLogged();
+            }
+            else
+            {
+                Member memberLogin = memberService.GetInformation(tokenLogin);
+                Dialog.LoginSuccessfullDialog(memberLogin.lastName);
             }
         }
         private void ContentFrame_NavigationFailed(object sender, NavigationFailedEventArgs e)
