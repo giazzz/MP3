@@ -12,6 +12,7 @@ namespace Mp3.Constant
     {
         public static string emailPattern = @" ^ ([\w\.\-] +)@([\w\-]+)((\.(\w){2,3})+)$";
         public static string phonePattern = @"^[0-9]+$";
+        public static string urlPattern = @"^http(s)?://([\w-]+.)+[\w-]+(/[\w- ./?%&=])?$";
         public Boolean CheckPattern(string st, string pattern)
         {
             Regex rgx = new Regex(pattern);

@@ -16,5 +16,6 @@ namespace Mp3.Constant
         public const string SONG_URL = BASE_URL + "/songs";
         public const string GET_MINE_SONG_URL = BASE_URL+ "/songs/get-mine";
         public const string GET_FREE_SONG_URL = BASE_URL+ "/songs/get-free-songs";
+        public const string Default_Avatar = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTO6b8UmHNot4Ra90A75-m6yRyuI03Q9SgvHgyiwsxHJIXXxJcL";
     }
 }

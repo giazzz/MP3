@@ -31,7 +31,7 @@ namespace Mp3.Pages
     public sealed partial class Register : Page
     {
         private StorageFile photo;
-        private string imgUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTO6b8UmHNot4Ra90A75-m6yRyuI03Q9SgvHgyiwsxHJIXXxJcL";
+        private string imgUrl = ApiUrl.Default_Avatar;
         MemberService memberService;
         public Register()
         {
@@ -107,8 +107,20 @@ namespace Mp3.Pages
 
         private void Button_Cancel(object sender, RoutedEventArgs e)
         {
-            
+            Reset();
         }
+        private void Reset()
+        {
+            this.firstname.Text = "";
+            this.lastname.Text = "";
+            this.phone.Text = "";
+            this.address.Text = "";
+            this.introduction.Text = "";
+            this.email.Text = "";
+            this.password.Password = "";
+            this.gender.SelectedValue = -1;
+        }
+
         private async void Button_Photo(object sender, RoutedEventArgs e)
         {
             //Get upload url:
@@ -127,6 +139,11 @@ namespace Mp3.Pages
                 return;
             }
             HttpUploadFile(uploadUrl, "myFile", "image/png");
+            if (imgUrl != ApiUrl.Default_Avatar)
+            {
+                this.button_cap.Visibility = Visibility.Collapsed;
+                this.Avatar.Visibility = Visibility.Visible;
+            }
         }
         public async void HttpUploadFile(string url, string paramName, string contentType)
         {
@@ -171,7 +188,7 @@ namespace Mp3.Pages
                 //Debug.WriteLine(reader2.ReadToEnd());
                 string imageUrl = reader2.ReadToEnd();
                 Debug.WriteLine(imageUrl);
-                Avatar.Source = new BitmapImage(new Uri(imageUrl, UriKind.Absolute));
+                Avatar.ProfilePicture = new BitmapImage(new Uri(imageUrl, UriKind.Absolute));
                 imgUrl = imageUrl;
             }
             catch (Exception ex)

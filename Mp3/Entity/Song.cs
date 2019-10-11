@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Mp3.Constant;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,6 +19,7 @@ namespace Mp3.Entity
         public Dictionary<string, string> errors = new Dictionary<string, string>();
         public Dictionary<string, string> Validate()
         {
+            RegexCheck rgx = new RegexCheck();
             if (string.IsNullOrEmpty(name))
             {
                 errors.Add("name", "Name is required!");
@@ -58,7 +60,8 @@ namespace Mp3.Entity
             {
                 errors.Add("thumbnail", "Thumbnail is required!");
             }
-            else if (!Uri.IsWellFormedUriString(thumbnail, UriKind.RelativeOrAbsolute))
+            //else if (!Uri.IsWellFormedUriString(thumbnail, UriKind.RelativeOrAbsolute))
+            else if (!rgx.CheckPattern(thumbnail, RegexCheck.urlPattern))
             {
                 errors.Add("thumbnail", "Thumbnail is not valid!");
             }
@@ -67,14 +70,12 @@ namespace Mp3.Entity
             {
                 errors.Add("link", "Link is required!");
             }
-            else if (!Uri.IsWellFormedUriString(link, UriKind.RelativeOrAbsolute))
+            //else if (!Uri.IsWellFormedUriString(link, UriKind.RelativeOrAbsolute))
+            else if (!!rgx.CheckPattern(link, RegexCheck.urlPattern))
             {
                 errors.Add("link", "Link is not valid!");
             }
-
             return errors;
         }
-
-
     }
 }

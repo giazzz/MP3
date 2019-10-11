@@ -7,106 +7,15 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
-    <!--<ScrollViewer Margin="20">
-        
-            
-        
-        <StackPanel Margin="50" HorizontalAlignment="Left" VerticalAlignment="Top">
-            <PersonPicture
-                    DisplayName="Betsy Sherman"
-                    ProfilePicture="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuX9EkC7atdtErzu5fZDIdyzaTr4aBNFskqvF66Pok5MaL63"
-                    Height="150"
-                    Initials="BS" Width="150" />
-            <Grid Margin="10">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="100"/>
-                    <ColumnDefinition Width="200"/>
-                    <ColumnDefinition Width="200"/>
-                </Grid.ColumnDefinitions>
-                <TextBlock Grid.Column="0" Text="Name"/>
-                <TextBox Grid.Column='1' x:Name="name"></TextBox>
-                <TextBlock Grid.Column="2" x:Name="name_er" Foreground="Red" Visibility="Collapsed"></TextBlock>
-            </Grid>
-
-            <Grid Margin="10">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="100"/>
-                    <ColumnDefinition Width="200"/>
-                    <ColumnDefinition Width="200"/>
-                </Grid.ColumnDefinitions>
-                <TextBlock Grid.Column="0" Text="Description"/>
-                <TextBox Grid.Column='1' x:Name="description"></TextBox>
-                <TextBlock Grid.Column="2" x:Name="description_er" Foreground="Red"></TextBlock>
-            </Grid>
-
-            <Grid Margin="10">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="100"/>
-                    <ColumnDefinition Width="200"/>
-                    <ColumnDefinition Width="200"/>
-                </Grid.ColumnDefinitions>
-                <TextBlock Grid.Column="0" Text="Singer"/>
-                <TextBox Grid.Column='1' x:Name="singer"></TextBox>
-                <TextBlock Grid.Column="2" x:Name="singer_er" Foreground="Red"></TextBlock>
-            </Grid>
-
-            <Grid Margin="10">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="100"/>
-                    <ColumnDefinition Width="200"/>
-                    <ColumnDefinition Width="200"/>
-                </Grid.ColumnDefinitions>
-                <TextBlock Grid.Column="0" Text="Author"/>
-                <TextBox Grid.Column='1' x:Name="author"></TextBox>
-                <TextBlock Grid.Column="2" x:Name="author_er" Foreground="Red"></TextBlock>
-            </Grid>
-
-            <Grid Margin="10">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="100"/>
-                    <ColumnDefinition Width="200"/>
-                    <ColumnDefinition Width="200"/>
-                </Grid.ColumnDefinitions>
-                <TextBlock Grid.Column="0" Text="Thumbnail"/>
-                <TextBox Grid.Column='1' x:Name="thumbnail"></TextBox>
-                <TextBlock Grid.Column="2" x:Name="thumbnail_er" Foreground="Red"></TextBlock>
-            </Grid>
-
-            <Grid Margin="10">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="100"/>
-                    <ColumnDefinition Width="200"/>
-                    <ColumnDefinition Width="200"/>
-                </Grid.ColumnDefinitions>
-                <TextBlock Grid.Column="0" Text="Link"/>
-                <TextBox Grid.Column='1' x:Name="link"></TextBox>
-                <TextBlock Grid.Column="2" x:Name="link_er" Foreground="Red"></TextBlock>
-            </Grid>
-            
-            <Grid Margin="10">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="100"/>
-                    <ColumnDefinition Width="100"/>
-                </Grid.ColumnDefinitions>
-                <Button Grid.Column="0" Click="ButtonBase_OnClick">Upload</Button>
-                <Button Grid.Column="1" Click="Button_Reset">Reset</Button>
-            </Grid>
-            
-        </StackPanel>
-    </ScrollViewer>-->
-
-    <Grid>
-        <ScrollViewer>
+    <ScrollViewer>
+        <Grid>
             <StackPanel HorizontalAlignment="Center">
                 <PersonPicture
                     DisplayName="Betsy Sherman"
                     ProfilePicture="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuX9EkC7atdtErzu--5fZDIdyzaTr4aBNFskqvF66Pok5MaL63"
                     Height="200"
                     Initials="BS" Width="200" />
-            <ScrollViewer Margin="20">
                 <StackPanel Margin="20" HorizontalAlignment="Left" VerticalAlignment="Top">
-
                     <TextBlock>Name</TextBlock>
                     <TextBox Width="300" x:Name="name"></TextBox>
                     <TextBlock Width="300" x:Name="name_er" Foreground="Red" Visibility="Collapsed"></TextBlock>
@@ -136,9 +45,7 @@
                         <Button Click="Button_Reset" RelativePanel.RightOf="uploadButton" Width="80">Reset</Button>
                     </RelativePanel>
                 </StackPanel>
-            </ScrollViewer>
-        </StackPanel>
-        </ScrollViewer>
-    </Grid>
-        
+            </StackPanel>
+        </Grid>
+    </ScrollViewer>
 </Page>
