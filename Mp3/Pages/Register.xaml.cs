@@ -71,6 +71,7 @@ namespace Mp3.Pages
             errors = member.Validate();
             if (errors.Count == 0)
             {
+                ResetAllErrorToHidden();
                 var memberRes = memberService.Register(member);
                 if (memberRes == null)
                 {
@@ -108,6 +109,7 @@ namespace Mp3.Pages
         private void Button_Cancel(object sender, RoutedEventArgs e)
         {
             Reset();
+            ResetAllErrorToHidden();
         }
         private void Reset()
         {
@@ -119,6 +121,18 @@ namespace Mp3.Pages
             this.email.Text = "";
             this.password.Password = "";
             this.gender.SelectedValue = -1;
+        }
+        private void ResetAllErrorToHidden()
+        {
+            this.firstname_er.Visibility = Visibility.Collapsed;
+            this.lastname_er.Visibility = Visibility.Collapsed;
+            this.phone_er.Visibility = Visibility.Collapsed;
+            this.address_er.Visibility = Visibility.Collapsed;
+            this.introduction_er.Visibility = Visibility.Collapsed;
+            this.email_er.Visibility = Visibility.Collapsed;
+            this.password_er.Visibility = Visibility.Collapsed;
+            this.gender_er.Visibility = Visibility.Collapsed;
+            this.birthday_er.Visibility = Visibility.Collapsed;
         }
 
         private async void Button_Photo(object sender, RoutedEventArgs e)
@@ -139,11 +153,6 @@ namespace Mp3.Pages
                 return;
             }
             HttpUploadFile(uploadUrl, "myFile", "image/png");
-            if (imgUrl != ApiUrl.Default_Avatar)
-            {
-                this.button_cap.Visibility = Visibility.Collapsed;
-                this.Avatar.Visibility = Visibility.Visible;
-            }
         }
         public async void HttpUploadFile(string url, string paramName, string contentType)
         {
@@ -156,11 +165,9 @@ namespace Mp3.Pages
 
             Stream rs = await wr.GetRequestStreamAsync();
             rs.Write(boundarybytes, 0, boundarybytes.Length);
-
             string header = string.Format("Content-Disposition: form-data; name=\"{0}\"; filename=\"{1}\"\r\nContent-Type: {2}\r\n\r\n", paramName, "path_file", contentType);
             byte[] headerbytes = System.Text.Encoding.UTF8.GetBytes(header);
             rs.Write(headerbytes, 0, headerbytes.Length);
-
             // write file.
             Stream fileStream = await this.photo.OpenStreamForReadAsync();
             byte[] buffer = new byte[4096];
@@ -169,10 +176,8 @@ namespace Mp3.Pages
             {
                 rs.Write(buffer, 0, bytesRead);
             }
-
             byte[] trailer = System.Text.Encoding.ASCII.GetBytes("\r\n--" + boundary + "--\r\n");
             rs.Write(trailer, 0, trailer.Length);
-
             WebResponse wresp = null;
             try
             {
@@ -190,6 +195,11 @@ namespace Mp3.Pages
                 Debug.WriteLine(imageUrl);
                 Avatar.ProfilePicture = new BitmapImage(new Uri(imageUrl, UriKind.Absolute));
                 imgUrl = imageUrl;
+                if (imgUrl != null)
+                {
+                    this.button_cap.Visibility = Visibility.Collapsed;
+                    this.Avatar.Visibility = Visibility.Visible;
+                }
             }
             catch (Exception ex)
             {

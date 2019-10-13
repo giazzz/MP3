@@ -15,8 +15,8 @@ namespace Mp3.Constant
             ContentDialog noWifiDialog = new ContentDialog
             {
                 Title = "Hi, "+ name+"!",
-                Content = "Welcome back. You've been logged in.",
-                CloseButtonText = "Ok"
+                Content = "You've been logged in.Let's listen to music!",
+                CloseButtonText = "OK"
             };
             ContentDialogResult result = await noWifiDialog.ShowAsync();
         }

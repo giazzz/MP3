@@ -6,24 +6,37 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="Transparent">
+    <Page.Resources>
+        <Storyboard x:Name="spinrect">
+            <DoubleAnimation To="360" RepeatBehavior="Forever" Duration="0:0:8"
+         Storyboard.TargetName="spinme"
+         Storyboard.TargetProperty="(UIElement.RenderTransform).(RotateTransform.Angle)" />
+        </Storyboard>
+    </Page.Resources>
     <ScrollViewer>
         <Grid>
             <StackPanel HorizontalAlignment="Center">
-                <PersonPicture
+                <StackPanel Margin="0 50 0 0">
+                    <PersonPicture
                         DisplayName="Betsy Sherman"
-                        ProfilePicture="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuX9EkC7atdtErzu--5fZDIdyzaTr4aBNFskqvF66Pok5MaL63"
+                        ProfilePicture="https://res.cloudinary.com/dev20/image/upload/v1570877154/MusicApp/musicapp_qm4gwr.png"
                         Height="200"
-                        Initials="BS" Width="200" />
+                        Initials="BS" Width="200" Name="spinme" RenderTransformOrigin=".5,.5">
+                        <PersonPicture.RenderTransform>
+                            <RotateTransform/>
+                        </PersonPicture.RenderTransform>
+                    </PersonPicture>
+                </StackPanel>
 
                 <StackPanel Margin="20" HorizontalAlignment="Left" VerticalAlignment="Top">
 
                     <TextBlock>Email</TextBlock>
-                    <TextBox Width="300" x:Name="email" BorderThickness="0, 0, 0, 2"></TextBox>
+                    <TextBox Width="300" x:Name="email" BorderThickness="0, 0, 0, 2" FontWeight="Bold" Background="Transparent"></TextBox>
                     <TextBlock Width="300" x:Name="email_er" Foreground="Red" Visibility="Collapsed"></TextBlock>
 
                     <TextBlock Margin="0, 10, 0, 0">Password</TextBlock>
-                    <PasswordBox Width="300" x:Name="password" BorderThickness="0, 0, 0, 2"></PasswordBox>
+                    <PasswordBox Width="300" x:Name="password" BorderThickness="0, 0, 0, 2" FontWeight="Bold" Background="Transparent"></PasswordBox>
                     <TextBlock Width="300" x:Name="password_er" Foreground="Red" Visibility="Collapsed"></TextBlock>
 
                     

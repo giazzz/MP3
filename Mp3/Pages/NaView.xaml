@@ -7,6 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:entity="using:Mp3.Entity"
     mc:Ignorable="d"
+    RequestedTheme="Dark"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
@@ -14,11 +15,14 @@
                          Loaded="NavView_Loaded"
                          ItemInvoked="NavView_ItemInvoked"
                          BackRequested="NavView_BackRequested">
+            <!--<NavigationView.Background>
+                <ImageBrush/>
+            </NavigationView.Background>-->
             <NavigationView.MenuItems>
                 <NavigationViewItem Tag="home" Icon="Home" Content="Home"/>
                 <NavigationViewItemSeparator/>
-                <NavigationViewItemHeader x:Name="MainPagesHeader"
-                                           Content="Main pages"/>
+                <!--<NavigationViewItemHeader x:Name="MainPagesHeader"
+                                           Content="Main pages"/>-->
 
                 <NavigationViewItem Tag="upload" Content="Upload" x:Name="upload">
                     <NavigationViewItem.Icon>
@@ -34,12 +38,12 @@
 
                 <NavigationViewItem Tag="mysong" Icon="Audio" Content="My Song" x:Name="mysong"/>
 
-                <NavigationViewItem Tag="freesong" Content="Free Songs">
+                <NavigationViewItem Tag="freesong" Content="Free Song">
                     <NavigationViewItem.Icon>
                         <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE93C;"/>
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
-                
+
                 <NavigationViewItem Tag="login" Content="Login" x:Name="login">
                     <NavigationViewItem.Icon>
                         <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE77B;"/>
@@ -63,10 +67,15 @@
                  more info about how to implement search. -->
                 <AutoSuggestBox x:Name="NavViewSearchBox" QueryIcon="Find"/>
             </NavigationView.AutoSuggestBox>
-            <Frame x:Name="ContentFrame" Padding="12,0,12,24" IsTabStop="True"
-                   NavigationFailed="ContentFrame_NavigationFailed"/>
+            <Frame x:Name="ContentFrame" Padding="12,0,12,24" Margin="0 -55 0 0" IsTabStop="True"
+                   NavigationFailed="ContentFrame_NavigationFailed">
+                <Frame.Background>
+                    <ImageBrush Stretch="None">
+                        <ImageBrush.ImageSource>https://res.cloudinary.com/dev20/image/upload/v1570879062/MusicApp/wallhaven-vg935l_ecsttb.jpg</ImageBrush.ImageSource>
+                    </ImageBrush>
+                </Frame.Background>
+            </Frame>
         </NavigationView>
-
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup>
                 <VisualState>
@@ -76,7 +85,7 @@
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
                         <!--Remove the next 3 lines for left-only navigation.-->
-                        <Setter Target="NavView.PaneDisplayMode" Value="Left"/>
+                        <Setter Target="NavView.PaneDisplayMode" Value="Top"/>
                         <!--<Setter Target="NavViewSearchBox.Width" Value="200"/>
                         <Setter Target="MainPagesHeader.Visibility" Value="Collapsed"/>-->
                         <!--Leave the next line for left-only navigation.-->

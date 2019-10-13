@@ -17,6 +17,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Animation;
+using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
@@ -52,7 +53,6 @@ namespace Mp3.Pages
             else
             {
                 Member memberLogin = memberService.GetInformation(tokenLogin);
-                Dialog.LoginSuccessfullDialog(memberLogin.lastName);
             }
         }
         private void ContentFrame_NavigationFailed(object sender, NavigationFailedEventArgs e)
@@ -70,19 +70,21 @@ namespace Mp3.Pages
             ("profile", typeof(Profile)),
             ("listsong", typeof(ListSong)),
             ("freesong", typeof(FreeSong)),
+            ("home", typeof(Home)),
 
         };
         private void NavView_Loaded(object sender, RoutedEventArgs e)
         {
             // You can also add items in code.
             NavView.MenuItems.Add(new NavigationViewItemSeparator());
+            
             //NavView.MenuItems.Add(new NavigationViewItem
             //{
             //    Content = "My content",
             //    Icon = new SymbolIcon((Symbol) 0xF1AD),
             //    Tag = "content"
             //});
-            _pages.Add(("content", typeof(Register)));
+            //_pages.Add(("content", typeof(Register)));
 
             // Add handler for ContentFrame navigation.
             ContentFrame.Navigated += On_Navigated;

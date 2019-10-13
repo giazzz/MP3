@@ -7,7 +7,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="Transparent">
 
     <ScrollViewer>
         <StackPanel HorizontalAlignment="Center">
@@ -30,7 +30,7 @@
                         Height="150"
                         Initials="BS" Width="150" />
             </StackPanel>
-            <StackPanel Margin="0, 0 , 0, 10">
+            <StackPanel Margin="0, 20 , 0, 10">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="210"/>
@@ -42,28 +42,28 @@
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                     <TextBlock Grid.Column="0" Grid.Row="0" Text="Firstname" Margin="0, 0, 20, 0"/>
-                    <TextBox x:ConnectionId='18' Grid.Column="0" Grid.Row="1" x:Name="firstname" Margin="0, 0, 20, 5" BorderThickness="0 0 0 2"></TextBox>
+                    <TextBox x:ConnectionId='18' Grid.Column="0" Grid.Row="1" x:Name="firstname" Margin="0, 0, 20, 5" BorderThickness="0 0 0 2" FontWeight="Bold" Background="Transparent"></TextBox>
                     <TextBlock x:ConnectionId='19' Grid.Column="0" Grid.Row="2" x:Name="firstname_er" Foreground="Red" Visibility="Collapsed" Margin="0, 0, 20, 0"/>
 
                     <TextBlock Grid.Column="1" Grid.Row="0" Text="Lastname" Margin="20,0,0,0"/>
-                    <TextBox x:ConnectionId='20' Grid.Column="1" Grid.Row="1" x:Name="lastname" Margin="20,0,0,5" BorderThickness="0 0 0 2"></TextBox>
+                    <TextBox x:ConnectionId='20' Grid.Column="1" Grid.Row="1" x:Name="lastname" Margin="20,0,0,5" BorderThickness="0 0 0 2" FontWeight="Bold" Background="Transparent"></TextBox>
                     <TextBlock x:ConnectionId='21' Grid.Column="1" Grid.Row="2" x:Name="lastname_er" Foreground="Red" Visibility="Collapsed" Margin="20,0,0,0"/>
                 </Grid>
             </StackPanel>
 
-            <TextBox x:ConnectionId='2' x:Name="email" Header= "Email" Width="420" HorizontalAlignment="Left" Margin="0, 0 , 0, 10" BorderThickness="0 0 0 2"/>
+            <TextBox x:ConnectionId='2' x:Name="email" Header= "Email" Width="420" HorizontalAlignment="Left" Margin="0, 0 , 0, 10" BorderThickness="0 0 0 2" FontWeight="Bold" Background="Transparent"/>
             <TextBlock x:ConnectionId='3' x:Name="email_er" Foreground="Red" Width="420" HorizontalAlignment="Left" Visibility="Collapsed"/>
 
-            <PasswordBox x:ConnectionId='4' x:Name="password" Header= "Password" Width="420" HorizontalAlignment="Left" Margin="0, 0 , 0, 10" BorderThickness="0 0 0 2"/>
+            <PasswordBox x:ConnectionId='4' x:Name="password" Header= "Password" Width="420" HorizontalAlignment="Left" Margin="0, 0 , 0, 10" BorderThickness="0 0 0 2" FontWeight="Bold" Background="Transparent"/>
             <TextBlock x:ConnectionId='5' x:Name="password_er" Foreground="Red" Width="420" HorizontalAlignment="Left" Visibility="Collapsed"/>
 
-            <TextBox x:ConnectionId='6' x:Name="address" Header= "Address" Width="420" HorizontalAlignment="Left" Margin="0, 0 , 0, 10" BorderThickness="0 0 0 2"/>
+            <TextBox x:ConnectionId='6' x:Name="address" Header= "Address" Width="420" HorizontalAlignment="Left" Margin="0, 0 , 0, 10" BorderThickness="0 0 0 2" FontWeight="Bold" Background="Transparent"/>
             <TextBlock x:ConnectionId='7' x:Name="address_er" Foreground="Red" Width="420" HorizontalAlignment="Left" Visibility="Collapsed"/>
 
-            <TextBox x:ConnectionId='8' x:Name="introduction" Header= "Introduction" Width="420" HorizontalAlignment="Left" Margin="0, 0 , 0, 10" BorderThickness="0 0 0 2"/>
+            <TextBox x:ConnectionId='8' x:Name="introduction" Header= "Introduction" Width="420" HorizontalAlignment="Left" Margin="0, 0 , 0, 10" BorderThickness="0 0 0 2" FontWeight="Bold" Background="Transparent"/>
             <TextBlock x:ConnectionId='9' x:Name="introduction_er" Foreground="Red" Width="420" HorizontalAlignment="Left" Visibility="Collapsed"/>
 
-            <TextBox x:ConnectionId='10' x:Name="phone" Header= "Phone" Width="420" HorizontalAlignment="Left" Margin="0, 0 , 0, 10" BorderThickness="0 0 0 2"/>
+            <TextBox x:ConnectionId='10' x:Name="phone" Header= "Phone" Width="420" HorizontalAlignment="Left" Margin="0, 0 , 0, 10" BorderThickness="0 0 0 2" FontWeight="Bold" Background="Transparent"/>
             <TextBlock x:ConnectionId='11' x:Name="phone_er" Foreground="Red" Width="420" HorizontalAlignment="Left" Visibility="Collapsed"/>
 
             <StackPanel Margin="0, 0 , 0, 10">
@@ -77,18 +77,18 @@
                         <RowDefinition/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
-                    <TextBlock Grid.Column="0" Grid.Row="0" Text="Birthday" Margin="0, 0, 0, 0"/>
-                    <DatePicker x:ConnectionId='14' Grid.Column="0" Grid.Row="1" x:Name="birthday" Margin="0, 0, 0, 5" BorderThickness="0 0 0 2"></DatePicker>
+                    <TextBlock Grid.Column="0" Grid.Row="0" Text="Birthday" Margin="0, 0, 0, 10"/>
+                    <DatePicker x:ConnectionId='14' Grid.Column="0" Grid.Row="1" x:Name="birthday" Margin="0, 0, 0, 5" BorderThickness="0 0 0 2" FontWeight="Bold"></DatePicker>
                     <TextBlock x:ConnectionId='15' Grid.Column="0" Grid.Row="2" x:Name="birthday_er" Foreground="Red" Visibility="Collapsed" Margin="0, 0, 0, 0"/>
 
-                    <TextBlock Grid.Column="1" Grid.Row="0" Text="Gender" Margin="20,0,0,0"/>
-                    <ComboBox x:ConnectionId='16' Grid.Column="1" Grid.Row="1" x:Name="gender" Margin="20,0,0,5" Width="100"></ComboBox>
+                    <TextBlock Grid.Column="1" Grid.Row="0" Text="Gender" Margin="20,0,0,10"/>
+                    <ComboBox x:ConnectionId='16' Grid.Column="1" Grid.Row="1" x:Name="gender" Margin="20,0,0,5" Width="100" FontWeight="Bold"></ComboBox>
                     <TextBlock x:ConnectionId='17' Grid.Column="1" Grid.Row="2" x:Name="gender_er" Foreground="Red" Visibility="Collapsed" Margin="20,0,0,0"/>
                 </Grid>
             </StackPanel>
-            <RelativePanel>
+            <RelativePanel HorizontalAlignment="Center">
                 <Button x:ConnectionId='12' Margin="0, 24, 0, 0"                            x:Name="res_button" Width="80">Register</Button>
-                <Button x:ConnectionId='13' Margin="50, 24, 0, 0"                       Width="80" RelativePanel.RightOf="res_button">Cancel</Button>
+                <Button x:ConnectionId='13' Margin="50, 24, 0, 0"                       Width="80" RelativePanel.RightOf="res_button">Reset</Button>
             </RelativePanel>
         </StackPanel>
     </ScrollViewer>

@@ -27,6 +27,7 @@ namespace Mp3.Pages
     /// </summary>
     public sealed partial class FreeSong : Page
     {
+        private PersonPicture pic;
         private ISongService songService;
         ObservableCollection<Song> _songs;
         private bool _isPlaying;
@@ -45,7 +46,9 @@ namespace Mp3.Pages
         }
         private void SelectSong(object sender, TappedRoutedEventArgs e)
         {
+            Animation.StopRotationImage(pic);
             var selectItem = sender as StackPanel;
+            pic = selectItem.Children.ElementAt(0) as PersonPicture;
             MyMediaPlayer.Pause();
             if (selectItem != null)
             {
@@ -65,6 +68,7 @@ namespace Mp3.Pages
             MyMediaPlayer.Play();
             StatusButton.Icon = new SymbolIcon(Symbol.Pause);
             _isPlaying = true;
+            Animation.StartRotationImage(pic);
         }
         private void Pause()
         {
@@ -72,6 +76,7 @@ namespace Mp3.Pages
             MyMediaPlayer.Pause();
             StatusButton.Icon = new SymbolIcon(Symbol.Play);
             _isPlaying = false;
+            Animation.StopRotationImage(pic);
         }
         private void StatusButton_OnClick(object sender, RoutedEventArgs e)
         {
@@ -97,6 +102,7 @@ namespace Mp3.Pages
                 _currentIndex = 0;
             }
             Play();
+            Animation.StopRotationImage(pic);
         }
 
         private void NextButton_OnClick(object sender, RoutedEventArgs e)
@@ -107,6 +113,7 @@ namespace Mp3.Pages
                 _currentIndex = 0;
             }
             Play();
+            Animation.StopRotationImage(pic);
         }
     }
 }

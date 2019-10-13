@@ -6,10 +6,10 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="Transparent">
     <ScrollViewer>
         <Grid>
-            <StackPanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Tag="{x:Bind memLogged}" >
+            <StackPanel Tag="{x:Bind memLogged}" >
                 <StackPanel HorizontalAlignment="Center">
                     <PersonPicture
                         DisplayName="Betsy Sherman"

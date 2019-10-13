@@ -6,42 +6,57 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="Transparent">
+    <Page.Resources>
+        <Storyboard x:Name="spinrect">
+            <DoubleAnimation To="360" RepeatBehavior="Forever" Duration="0:0:8"
+         Storyboard.TargetName="spinme"
+         Storyboard.TargetProperty="(UIElement.RenderTransform).(RotateTransform.Angle)" />
+        </Storyboard>
+    </Page.Resources>
     <ScrollViewer>
         <Grid>
             <StackPanel HorizontalAlignment="Center">
-                <PersonPicture
-                    DisplayName="Betsy Sherman"
-                    ProfilePicture="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuX9EkC7atdtErzu--5fZDIdyzaTr4aBNFskqvF66Pok5MaL63"
-                    Height="200"
-                    Initials="BS" Width="200" />
+                <StackPanel Margin="0 50 0 0">
+                    <PersonPicture
+                        DisplayName="Betsy Sherman"
+                        ProfilePicture="https://res.cloudinary.com/dev20/image/upload/v1570877154/MusicApp/musicapp_qm4gwr.png"
+                        Height="150"
+                        Initials="BS" Width="150" Name="spinme" RenderTransformOrigin=".5,.5">
+                        <PersonPicture.RenderTransform>
+                            <RotateTransform/>
+                        </PersonPicture.RenderTransform>
+                    </PersonPicture>
+                </StackPanel>
+                
+                
                 <StackPanel Margin="20" HorizontalAlignment="Left" VerticalAlignment="Top">
                     <TextBlock>Name</TextBlock>
-                    <TextBox Width="300" x:Name="name"></TextBox>
+                    <TextBox Width="300" x:Name="name" BorderThickness="0, 0, 0, 2" FontWeight="Bold" Background="Transparent"></TextBox>
                     <TextBlock Width="300" x:Name="name_er" Foreground="Red" Visibility="Collapsed"></TextBlock>
 
                     <TextBlock>Description</TextBlock>
-                    <TextBox Width="300" x:Name="description"></TextBox>
+                    <TextBox Width="300" x:Name="description" BorderThickness="0, 0, 0, 2" FontWeight="Bold" Background="Transparent"></TextBox>
                     <TextBlock Width="300" x:Name="description_er" Foreground="Red" Visibility="Collapsed"></TextBlock>
 
                     <TextBlock>Singer</TextBlock>
-                    <TextBox Width="300" x:Name="singer"></TextBox>
+                    <TextBox Width="300" x:Name="singer" BorderThickness="0, 0, 0, 2" FontWeight="Bold" Background="Transparent"></TextBox>
                     <TextBlock Width="300" x:Name="singer_er" Foreground="Red" Visibility="Collapsed"></TextBlock>
 
                     <TextBlock>Author</TextBlock>
-                    <TextBox Width="300" x:Name="author"></TextBox>
+                    <TextBox Width="300" x:Name="author" BorderThickness="0, 0, 0, 2" FontWeight="Bold" Background="Transparent"></TextBox>
                     <TextBlock Width="300" x:Name="author_er" Foreground="Red" Visibility="Collapsed"></TextBlock>
 
                     <TextBlock>Thumbnail</TextBlock>
-                    <TextBox Width="300" x:Name="thumbnail"></TextBox>
+                    <TextBox Width="300" x:Name="thumbnail" BorderThickness="0, 0, 0, 2" FontWeight="Bold" Background="Transparent"></TextBox>
                     <TextBlock Width="300" x:Name="thumbnail_er" Foreground="Red" Visibility="Collapsed"></TextBlock>
 
                     <TextBlock>Link</TextBlock>
-                    <TextBox Width="300" x:Name="link"></TextBox>
+                    <TextBox Width="300" x:Name="link" BorderThickness="0, 0, 0, 2" FontWeight="Bold" Background="Transparent"></TextBox>
                     <TextBlock Width="300" x:Name="link_er" Foreground="Red" Visibility="Collapsed"></TextBlock>
 
-                    <RelativePanel Margin="0, 40, 0, 0">
-                        <Button x:Name="uploadButton" Click="ButtonBase_OnClick" Width="80" Margin="0, 0, 140, 0">Upload</Button>
+                    <RelativePanel Margin="0, 40, 0, 0" HorizontalAlignment="Center">
+                        <Button x:Name="uploadButton" Click="ButtonBase_OnClick" Width="80" Margin="0, 0, 40, 0">Upload</Button>
                         <Button Click="Button_Reset" RelativePanel.RightOf="uploadButton" Width="80">Reset</Button>
                     </RelativePanel>
                 </StackPanel>

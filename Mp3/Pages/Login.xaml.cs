@@ -30,6 +30,7 @@ namespace Mp3.Pages
         public Login()
         {
             this.InitializeComponent();
+            spinrect.Begin();
             memberService = new MemberServiceImp();
             //Lay token da luu file trong lan dang nhap trc:
             var token = memberService.ReadTokenFromLocalStorage();

@@ -10,11 +10,13 @@ App.xbf
 MainPage.xbf
 Mp3.xr.xml
 Pages\FreeSong.xbf
+Pages\Home.xbf
 Pages\ListSong.xbf
 Pages\Login.xbf
 Pages\MySong.xbf
 Pages\NaView.xbf
 Pages\Profile.xbf
 Pages\Register.xbf
+Pages\Test.xbf
 Pages\Upload.xbf
 Properties\Default.rd.xml

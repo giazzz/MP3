@@ -7,27 +7,31 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:entity="using:Mp3.Entity"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="Transparent">
     <Grid>
-        <StackPanel>
-            <ListView x:ConnectionId='7' x:Name="MyListSong" >
-                <ListView.ItemTemplate>
-                    <DataTemplate                         >
-                        <StackPanel x:ConnectionId='9' Margin="0,10,0,10" Orientation="Horizontal"                     Tag="{Binding}">
-                            <Ellipse Width="77" Height="77">
-                                <Ellipse.Fill>
-                                    <ImageBrush x:ConnectionId='12'                                 />
-                                </Ellipse.Fill>
-                            </Ellipse>
-                            <StackPanel Margin="10,10,0,0">
-                                <TextBlock x:ConnectionId='10'                      Style="{ThemeResource BaseTextBlockStyle}"/>
-                                <TextBlock x:ConnectionId='11'                        Style="{ThemeResource BaseTextBlockStyle}"/>
+        <ScrollViewer>
+            <StackPanel Margin="20 0 0 0">
+                <ListView x:ConnectionId='7' x:Name="MyListSong" >
+                    <ListView.ItemTemplate>
+                        <DataTemplate                         >
+                            <StackPanel x:ConnectionId='9' Margin="0,10,0,10" Orientation="Horizontal"                     Tag="{Binding}">
+                                <PersonPicture x:ConnectionId='10'
+                                        DisplayName="Betsy Sherman"
+                                                                           
+                                        Tag="rotateImg"
+                                        Height="80"
+                                        Initials="BS" Width="80">
+                                </PersonPicture>
+                                <StackPanel Margin="10,10,0,0">
+                                    <TextBlock x:ConnectionId='11'                      Style="{ThemeResource BaseTextBlockStyle}"/>
+                                    <TextBlock x:ConnectionId='12'                        Style="{ThemeResource BaseTextBlockStyle}"/>
+                                </StackPanel>
                             </StackPanel>
-                        </StackPanel>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackPanel>
+        </ScrollViewer>
 
         <StackPanel VerticalAlignment="Bottom">
             <MediaElement x:ConnectionId='2' x:Name="MyMediaPlayer"/>

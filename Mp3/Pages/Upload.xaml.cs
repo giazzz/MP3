@@ -48,6 +48,7 @@ namespace Mp3.Pages
             else
             {
                 this.InitializeComponent();
+                spinrect.Begin();
                 this.songService = new SongServiceImp();
             }
         }
@@ -112,6 +113,7 @@ namespace Mp3.Pages
         private void Button_Reset(object sender, RoutedEventArgs e)
         {
             ResetTextbox();
+            ResetAllErrorsToHidden();
         }
 
         private void ResetTextbox()

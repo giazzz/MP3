@@ -9,6 +9,7 @@ namespace Mp3.Entity
 {
     class Song
     {
+        public long id { get; set; }
         public string name { get; set; }
         public string description { get; set; }
         public string singer { get; set; }
@@ -71,7 +72,7 @@ namespace Mp3.Entity
                 errors.Add("link", "Link is required!");
             }
             //else if (!Uri.IsWellFormedUriString(link, UriKind.RelativeOrAbsolute))
-            else if (!!rgx.CheckPattern(link, RegexCheck.urlPattern))
+            else if (!rgx.CheckPattern(link, RegexCheck.urlPattern))
             {
                 errors.Add("link", "Link is not valid!");
             }
